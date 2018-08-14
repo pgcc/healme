@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css"/>
+                <link rel="stylesheet" type="text/css" href="estiloHealme.css"/>
+                <title>HEAL ME</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+          
+            <div class="blau border badge-light">
+                <div style="padding-left: 15px">
+                    <p>
+                        <h1>HEAL ME</h1>
+                        <h5>Health dEfinition Archtecture ontoLogy-based froM sEco</h5>
+                    </p>
+                </div>                
+            </div>
+                
+            <div style="padding: 0px">
+                 <p:megaMenu style="margin-bottom:20px">
+                      <p:submenu label="Common">
+                            <p:column>
+                                <p:submenu label="">
+                                    <p:menuitem value="Home Page" outcome="index" />
+                                    <p:menuitem value="About" outcome="about" />
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>   
+                     
+                        <p:submenu label="Registrations">
+                            <p:column>
+                                <p:submenu label="">
+                                    <p:menuitem value="Platforms" outcome="registration" />
+                                    <p:menuitem value="Parameters" outcome="parregistration" />
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>
+
+                        <p:submenu label="Analysis">
+                            <p:column>
+                                <p:submenu label="">
+                                    <p:menuitem value="Health Analysis" outcome="platformSelection" />
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>
+                     
+                      <p:submenu label="Documentation">
+                            <p:column>
+                                <p:submenu label="">
+                                    <p:menuitem value="How To Use" outcome="index" />
+                                    <p:menuitem value="Metrics Table" outcome="files/Formalized_Metrics_Table_English.pdf" target="_blank"/>
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>
+                       
+                    </p:megaMenu>  
+                </div>
+
+                <div id="corpo" class="col-lg">
+                    <h2 align="center"> - HEAL ME Overviewe - </h2>
+                    <hr/>
+                     <div>
+                        <p align="center">Archtecture: The Health dEfinition Archtecture ontoLogy-based froM sEco (HEAL ME).</p>
+                        <p align="center">Version: 1.1.0</p>
+                        <p align="center">Developer: Iuri Andrade Carvalho</p>
+                        <p align="center">Masters Degree in Computer Science project</p>
+                        <p align="center">Institution: Federal University of Juiz de Fora (UFJF)</p>
+                        <p align="center">Post Graduate Program in Computer Science (PPGCC)</p>
+                        <p align="center">Computer Science Department (DCC)</p>
+                        <p align="center">Advisor: Fernanda Claúdia Alves Campos</p>
+                        <p align="center">Co-advisor: Regina Braga</p>
+                        <p align="center">Start Projetc Date: March/2016</p>
+                    </div>
+                    
+                    <br/>
+                    <br/> 
+                </div>
+
+            <br />
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+        </h:body>
+
+    </f:view>
+</html>
+

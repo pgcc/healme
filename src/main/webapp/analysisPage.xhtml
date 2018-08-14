@@ -1,0 +1,2467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css"/>
+                <link rel="stylesheet" type="text/css" href="estiloHealme.css"/>
+                <script src="js/Chart.bundle.js"></script>
+                <script src="js/utils.js"></script>
+                <title>HEAL ME</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <div class="blau border badge-light">
+                <div style="padding-left: 15px">
+                    <p>
+                    <h1>HEAL ME</h1>
+                    <h5>Health dEfinition Archtecture ontoLogy-based froM sEco</h5>
+                    </p>
+                </div>                
+            </div>
+
+            <div style="padding: 0px">
+                <p:megaMenu style="margin-bottom:20px">
+                    <p:submenu label="Common">
+                        <p:column>
+                            <p:submenu label="">
+                                <p:menuitem value="Home Page" outcome="index" />
+                                <p:menuitem value="About" outcome="about" />
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>   
+
+                    <p:submenu label="Registrations">
+                        <p:column>
+                            <p:submenu label="">
+                                <p:menuitem value="Platforms" outcome="registration" />
+                                <p:menuitem value="Parameters" outcome="parregistration" />
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+
+                    <p:submenu label="Analysis">
+                        <p:column>
+                            <p:submenu label="">
+                                <p:menuitem value="Health Analysis" outcome="platformSelection" />
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+
+                    <p:submenu label="Documentation">
+                        <p:column>
+                            <p:submenu label="">
+                                <p:menuitem value="How To Use" outcome="index" />
+                                <p:menuitem value="Metrics Table" outcome="files/Formalized_Metrics_Table_English.pdf" target="_blank"/>
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+
+                </p:megaMenu>
+            </div>
+
+
+            <div id="corpo" class="side-collapse-container col-lg">
+                <h1 align="center">Platform Analysis</h1>
+                <hr/>
+                <h2>Name:  <h:outputText value="#{consultaCert.model.name}" /></h2>
+                <br/>
+                <div class="container col-lg">
+                    <div id="accordion">
+                        <div>
+                            <h2>
+                                Analysis Overview:
+                                <br/>
+                            </h2>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#Health">
+                                    Health
+                                </a>
+                            </div>
+                            <div id="Health" class="collapse show" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div align="center">
+                                        <div class="chart">
+                                            <canvas id="chart-health7" ></canvas>
+                                        </div>
+                                        <div class="chart">
+                                            <canvas id="chart-health6" ></canvas>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#geral">
+                                    Individual Indicators
+                                </a>
+                            </div>
+                            <div id="geral" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div align="center">
+                                        <div class="chart">
+                                            <canvas id="chart-health8" ></canvas>
+                                        </div>
+                                        <div class="chart">
+                                            <canvas id="chart-health" ></canvas>
+                                        </div>
+                                        <hr/>
+                                        <div class="chart">
+                                            <canvas id="chart-health2" ></canvas>
+                                        </div>
+                                        <div class="chart">
+                                            <canvas id="chart-health9" ></canvas>
+                                        </div>
+                                        <hr/>
+                                        <div class="chart">
+                                            <canvas id="chart-health3" ></canvas>
+                                        </div>
+                                        <div class="chart">
+                                            <canvas id="chart-health10" ></canvas>
+                                        </div>
+                                        <hr/>
+                                        <div class="chart">
+                                            <canvas id="chart-health11" ></canvas>
+                                        </div>
+                                        <div class="chart">
+                                            <canvas id="chart-health4" ></canvas>
+                                        </div>
+                                        <hr/>
+                                        <div class="chart">
+                                            <canvas id="chart-health5" ></canvas>
+                                        </div>
+                                        <div class="chart">
+                                            <canvas id="chart-health12" ></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <hr/>
+                        <div align="center">
+                            <h2>
+                                Metrics Individual Description
+                                <br/>
+                            </h2>
+                        </div>
+                        <hr/>
+
+
+                        <div>
+                            <h2>
+                                Indicator: Sustainability
+                                <br/>
+                            </h2>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#Het">
+                                    Heterogeneity
+                                </a>
+                            </div>
+                            <div id="Het" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <h3>
+                                            Carachteristic: Heterogeneity
+                                            <br/>
+                                            <br/>
+                                        </h3>
+                                    </div>
+
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Metric</th>
+                                                    <th scope="col">Value</th>
+                                                    <th scope="col">Parameter</th>
+                                                    <th scope="col">(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Number of Coutries</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfCountries}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfCountriesPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumOfCountries()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Semantic Closeness</th>
+                                                <td><h:outputText value="#{consultaCert.model.semanticClosenessAvg}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.semanticClosenessAvgPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaSemanticC()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Node Types</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfNodeTypes}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfNodeTypesPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumOfNodesType()}%"/></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr/>
+                                        Metrics Distribution:
+                                        <div align="center">
+                                            <div id="canvas-holder" style="width:70%">
+                                                <canvas id="chart-area" ></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#RegAb">
+                                    Regeneration Ability
+                                </a>
+                            </div>
+                            <div id="RegAb" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <div>
+                                            <h3>
+                                                Carachteristic: Regeneration Ability
+                                                <br/>
+                                                <br/>
+                                            </h3>
+                                        </div>
+
+                                        <div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Metric</th>
+                                                        <th scope="col">Value</th>
+                                                        <th scope="col">Parameter</th>
+                                                        <th scope="col">(%)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Working Time Set</th>
+                                                        <td><h:outputText value="#{consultaCert.model.timeWorkTogether}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.timeWorkTogetherPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaTimeWorkTogether()}%"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">New Members</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfNewMembers}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfNewMembersPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfNewMembers()}%"/></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr/>
+                                            Metrics Distribution:
+                                            <div align="center">
+                                                <div id="canvas-holder" style="width:70%">
+                                                    <canvas id="chart-area2"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#EffBal">
+                                    Effort Balance
+                                </a>
+                            </div>
+                            <div id="EffBal" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <div>
+                                            <h3>
+                                                Carachteristic: Effort Balance
+                                                <br/>
+                                                <br/>
+                                            </h3>
+                                        </div>
+
+                                        <div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Metric</th>
+                                                        <th scope="col">Value</th>
+                                                        <th scope="col">Parameter</th>
+                                                        <th scope="col">(%)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Number of Commits</th>
+                                                        <td><h:outputText value="#{consultaCert.model.developerCommits}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.developerCommitsPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaDeveloperCommits()}%"/></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row">Active Members</th>
+                                                    <td><h:outputText value="#{consultaCert.model.activeMembers}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.activeMembersPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaActiveMembers()}%"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Participativeness</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfCommunits}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfCommunitsPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfCommunits()}%"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Effort Total Set</th>
+                                                    <td><h:outputText value="#{consultaCert.model.totalEffor}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.totalEfforPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfEventParticipants()}%"/></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr/>
+                                            Metrics Distribution:
+                                            <div align="center">
+                                                <div id="canvas-holder" style="width:70%">
+                                                    <canvas id="chart-area3"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#ExBal">
+                                    Expertise Balance
+                                </a>
+                            </div>
+                            <div id="ExBal" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <div>
+                                            <h3>
+                                                Carachteristic: Expertise Balance
+                                                <br/>
+                                                <br/>
+                                            </h3>
+                                        </div>
+
+                                        <div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Metric</th>
+                                                        <th scope="col">Value</th>
+                                                        <th scope="col">Parameter</th>
+                                                        <th scope="col">(%)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">Participation in events</th>
+                                                        <td><h:outputText value="#{consultaCert.model.numberOfEventParticipants}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model. numberOfEventParticipantsPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfEventParticipants()}%"/></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr/>
+                                            Metrics Distribution:
+                                            <div align="center">
+                                                <div id="canvas-holder" style="width:70%">
+                                                    <canvas id="chart-area4"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#Vis">
+                                    Visibility
+                                </a>
+                            </div>
+                            <div id="Vis" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <div>
+                                            <h3>
+                                                Carachteristic: Visibility
+                                                <br/>
+                                                <br/>
+                                            </h3>
+                                        </div>
+
+                                        <div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Metric</th>
+                                                        <th scope="col">Value</th>
+                                                        <th scope="col">Parameter</th>
+                                                        <th scope="col">(%)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr>
+                                                        <th scope="row">Tasks  Divulgation</th>
+                                                        <td><h:outputText value="#{consultaCert.model.numberOfJobAdvertisements}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfJobAdvertisementsPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfJobAdvertisements()}%"/></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row">Downloads Made</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfDownloads}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfDownloadsPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfDownloads()}%"/></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th scope="row">Number of Readers</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfReaders}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfReadersPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfReaders()}%"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Scientific publications</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfScientificPublication}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfScientificPublicationPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfScientificPublication()}%"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Quotes on Social Media and Blogs</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfSocialMediaHits}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfSocialMediaHitsPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfSocialMediaHits()}%"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Web page requests</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfWebPageRequests}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfWebPageRequestsPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfWebPageRequests()}%"/></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr/>
+                                            Metrics Distribution:
+                                            <div align="center">
+                                                <div id="canvas-holder" style="width:70%">
+                                                    <canvas id="chart-area5"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2>
+                                Indicator: Diversity
+                                <br/>
+                            </h2>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#Diversity">
+                                    Diversity
+                                </a>
+                            </div>
+                            <div id="Diversity" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Metric</th>
+                                                    <th scope="col">Value</th>
+                                                    <th scope="col">Parameter</th>
+                                                    <th scope="col">(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Number of Developers</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfDevelopers}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfDevelopersPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfDevelopers()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Users Groups</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfUsersGroups}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfUsersGroupsPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfUsersGroups()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Supported Programming Languages</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfProgrammingLanguagesSupported}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfProgrammingLanguagesSupportedPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfProgrammingLanguages()}%"/></td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">Plan for Collapse</th>
+                                                <td><h:outputText value="#{consultaCert.model.existPlanForCollapse}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.existPlanForCollapsePar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaPlanForCollapse()}%"/></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr/>
+                                        Metrics Distribution:
+                                        <div align="center">
+                                            <div id="canvas-holder" style="width:70%">
+                                                <canvas id="chart-area6"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2>
+                                Indicator: Productivity
+                                <br/>
+                            </h2>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#Productivity">
+                                    Productivity
+                                </a>
+                            </div>
+                            <div id="Productivity" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Metric</th>
+                                                    <th scope="col">Value</th>
+                                                    <th scope="col">Parameter</th>
+                                                    <th scope="col">(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">New Projects</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfProjectsAdded}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfProjectsAddedPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfProjectsAdded()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Community Events</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfEvents}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfEventsPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfEvents()}%"/></td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">Artifacts Added</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfArtifacts}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfArtifactsPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfArtifacts()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Transmitted Messages</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfTransmittedMessages}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfTransmittedMessagesPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfTransmittedMessages()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Average of fix errors time</th>
+                                                <td><h:outputText value="#{consultaCert.model.bugFixTime}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.bugFixTimePar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaBugFixTime()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Partners added</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfPartnersAdded}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfPartnersAddedPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfPartnersAdded()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Number of Users</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfUsers}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfUsersPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfUsers()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Average Usage Time</th>
+                                                <td><h:outputText value="#{consultaCert.model.averageTimeUse}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.averageTimeUsePar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaAverageTimeUse()}%"/></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr/>
+                                        Metrics Distribution:
+                                        <div align="center">
+                                            <div id="canvas-holder" style="width:80%">
+                                                <canvas id="chart-area7"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2>
+                                Indicator: Robustness
+                                <br/>
+                            </h2>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#Interr">
+                                    Interrelatedness
+                                </a>
+                            </div>
+                            <div id="Interr" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <h3>
+                                            Carachteristic: Interrelatedness
+                                            <br/>
+                                            <br/>
+                                        </h3>
+                                    </div>
+
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Metric</th>
+                                                    <th scope="col">Value</th>
+                                                    <th scope="col">Parameter</th>
+                                                    <th scope="col">(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Number of Connections</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfNodesConnections}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfNodesConnectionsPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfNodesConnections()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Connectivity Capacity</th>
+                                                <td><h:outputText value="#{consultaCert.model.connectivityCapacity}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.connectivityCapacityPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaConnectivityCapacity()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Ratio Between Number of Connections and Capacity</th>
+                                                <td><h:outputText value="#{consultaCert.model.ratioConnectionsCapacity}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.ratioConnectionsCapacityPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaRatioConnectionsCapacity()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nodes  Centrality</th>
+                                                <td><h:outputText value="#{consultaCert.model.nodesCentrality}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.nodesCentralityPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNodesCentrality()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">External Partners</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfExternalPartners}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfExternalPartnersPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfExternalPartners()}%"/></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr/>
+                                        Metrics Distribution:
+                                        <div align="center">
+                                            <div id="canvas-holder" style="width:70%">
+                                                <canvas id="chart-area8"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#Clus">
+                                    Clustering
+                                </a>
+                            </div>
+                            <div id="Clus" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <h3>
+                                            Carachteristic: Clustering
+                                            <br/>
+                                            <br/>
+                                        </h3>
+                                    </div>
+
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Metric</th>
+                                                    <th scope="col">Value</th>
+                                                    <th scope="col">Parameter</th>
+                                                    <th scope="col">(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Product Types</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfProductTypes}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfProductTypesPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfProductTypes()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Greater Collaboration</th>
+                                                <td><h:outputText value="#{consultaCert.model.greaterCollaboration}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.greaterCollaborationPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaGreaterCollaboration()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Active Projects</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfActiveProjects}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfActiveProjectsPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfActiveProjects()}%"/></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr/>
+                                        Metrics Distribution:
+                                        <div align="center">
+                                            <div id="canvas-holder" style="width:70%">
+                                                <canvas id="chart-area10"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#FinCons">
+                                    Financial Consistence
+                                </a>
+                            </div>
+                            <div id="FinCons" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div>
+                                        <h3>
+                                            Carachteristic: Financial Consistence
+                                            <br/>
+                                            <br/>
+                                        </h3>
+                                    </div>
+
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Metric</th>
+                                                    <th scope="col">Value</th>
+                                                    <th scope="col">Parameter</th>
+                                                    <th scope="col">(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Number of Partners</th>
+                                                    <td><h:outputText value="#{consultaCert.model.numberOfPartners}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfPartnersPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfPartners()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Commercial Sponsorship</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfCommercialSponsors}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfCommercialSponsorsPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfCommercialSponsors()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Total Contribution Value</th>
+                                                <td><h:outputText value="#{consultaCert.model.totalContributionValue}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.totalContributionValuePar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaTotalContributionValue()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Active Contributors</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfActiveContributors}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfActiveContributorsPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfActiveContributors()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Frequently Users</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfFrequentUsers}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfFrequentUsersPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfFrequentUsers()}%"/></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr/>
+                                        Metrics Distribution:
+                                        <div align="center">
+                                            <div id="canvas-holder" style="width:70%">
+                                                <canvas id="chart-area11"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2>
+                                Indicator: Niche Creation
+                                <br/>
+                            </h2>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#NiCrea">
+                                    Niche Creation
+                                </a>
+                            </div>
+                            <div id="NiCrea" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Metric</th>
+                                                    <th scope="col">Value</th>
+                                                    <th scope="col">Parameter</th>
+                                                    <th scope="col">(%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Documentation</th>
+                                                    <td><h:outputText value="#{consultaCert.model.haveDocumentation}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.haveDocumentationPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaHaveDocumentation()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Types of Contributors</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfContributorsTypes}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfContributorsTypesPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfContributorsTypes()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Types of Application Projects</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfTypesAppProjects}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfTypesAppProjectsPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfTypesAppProjects()}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Natural Language Support</th>
+                                                <td><h:outputText value="#{consultaCert.model.supportNaturalLanguages}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.supportNaturalLanguagesPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaSupportNaturalLanguages()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Supported Technologies</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfTypesTechSupported}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfTypesTechSupportedPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfTypesTechSupported()}%"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Supported Development Technologies</th>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfTypesDevTechSupported}" /></td>
+                                            <td><h:outputText value="#{consultaCert.model.numberOfTypesDevTechSupportedPar}" /></td>
+                                            <td><h:outputText value="#{consultaCert.retornaNumberOfTypesDevTechSupported()}%"/></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr/>
+                                        Metrics Distribution:
+                                        <div align="center">
+                                            <div id="canvas-holder" style="width:80%">
+                                                <canvas id="chart-area12"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <br />
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+            <script>
+
+
+                var color = Chart.helpers.color;
+
+                var healthConfig = {
+                    labels: ['Heterogeinity', 'Regen.Ability', 'Effort Balance', 'Exp.Balance', 'Visibility'],
+                    datasets: [{
+                            backgroundColor: [
+                                window.chartColors.red,
+                                window.chartColors.grey,
+                                window.chartColors.green,
+                                window.chartColors.yellow,
+                                window.chartColors.purple
+                            ],
+                            borderColor: [
+                                window.chartColors.red,
+                                window.chartColors.grey,
+                                window.chartColors.green,
+                                window.chartColors.yellow,
+                                window.chartColors.purple
+                            ],
+                            borderWidth: 1,
+                            data: [
+                                Math.round(#{consultaCert.retornaHet()}),
+                                Math.round(#{consultaCert.retornaRegAb()}),
+                                Math.round(#{consultaCert.retornaEffBal()}),
+                                Math.round(#{consultaCert.retornaExBal()}),
+                                Math.round(#{consultaCert.retornaVis()})
+                            ]
+                        }]
+                };
+
+                var healthConfig8 = {
+                    labels: ['Sustainability', '', '', '', ''],
+                    datasets: [{
+                            backgroundColor: [
+                                window.chartColors.blue
+                            ],
+                            borderColor: [
+                                window.chartColors.blue
+                            ],
+                            borderWidth: 1,
+                            data: [
+                                Math.round(#{consultaCert.retornaSust()})
+                            ]
+                        }]
+                };
+
+                var healthConfig2 = {
+                    labels: ['Diversity', '', '', '', ''],
+                    datasets: [{
+                            label: 'Diversity',
+                            backgroundColor: window.chartColors.blue,
+                            borderColor: window.chartColors.blue,
+                            borderWidth: 1,
+                            data: [
+                                Math.round(#{consultaCert.retornaDiv()})
+                            ]
+                        }
+                    ],
+                    options: {
+                        responsible: true,
+                        legend: {
+                            position: 'left'
+                        }
+                    }
+                };
+
+                var healthConfig3 = {
+                    labels: ['Productivity', '', '', '', ''],
+                    datasets: [{
+                            label: 'Productivity',
+                            backgroundColor: window.chartColors.blue,
+                            borderColor: window.chartColors.blue,
+                            borderWidth: 1,
+                            data: [
+                                Math.round(#{consultaCert.retornaProdut()})
+                            ]
+                        }
+                    ],
+                    options: {
+                        responsible: true,
+                        legend: {
+                            position: 'left'
+                        }
+                    }
+                };
+
+                var healthConfig4 = {
+                    labels: ['Interrelatedness', 'Clustering', 'Fin.Consistence', '', ''],
+                    datasets: [{
+                            backgroundColor: [
+                                window.chartColors.red,
+                                window.chartColors.grey,
+                                window.chartColors.green
+                            ],
+                            borderColor: [
+                                window.chartColors.red,
+                                window.chartColors.grey,
+                                window.chartColors.green
+                            ],
+                            borderWidth: 1,
+                            data: [
+                                Math.round(#{consultaCert.retornaInterr()}),
+                                Math.round(#{consultaCert.retornaClust()}),
+                                Math.round(#{consultaCert.retornaFinCons()})
+                            ]
+                        }]
+                };
+
+                var healthConfig11 = {
+                    labels: ['Robustness', '', '', '', ''],
+                    datasets: [{
+                            backgroundColor: [
+                                window.chartColors.blue
+                            ],
+                            borderColor: [
+                                window.chartColors.blue
+                            ],
+                            borderWidth: 1,
+                            data: [
+                                Math.round(#{consultaCert.retornaRobust()})
+                            ]
+                        }]
+                };
+
+                var healthConfig5 = {
+                    labels: ['Niche Creation', '', '', '', ''],
+                    datasets: [{
+                            label: 'Niche Creation',
+                            backgroundColor: window.chartColors.blue,
+                            borderColor: window.chartColors.blue,
+                            borderWidth: 1,
+                            data: [
+                                Math.round(#{consultaCert.retornaNiCrea()})
+                            ]
+                        }
+                    ],
+                    options: {
+                        responsible: true,
+                        legend: {
+                            position: 'left'
+                        }
+                    }
+                };
+
+                var healthConfig6 = {
+                    labels: ['Sustainability', 'Diversity', 'Productivity', 'Robustness', 'Niche'],
+                    datasets: [{
+                            borderColor: [
+                                window.chartColors.red,
+                                window.chartColors.grey,
+                                window.chartColors.green,
+                                window.chartColors.yellow,
+                                window.chartColors.purple
+                            ],
+                            borderWidth: 1,
+                            backgroundColor: [
+                                window.chartColors.red,
+                                window.chartColors.grey,
+                                window.chartColors.green,
+                                window.chartColors.yellow,
+                                window.chartColors.purple
+                            ],
+                            data: [
+                                Math.round(#{consultaCert.retornaSust()}),
+                                Math.round(#{consultaCert.retornaDiv()}),
+                                Math.round(#{consultaCert.retornaProdut()}),
+                                Math.round(#{consultaCert.retornaRobust()}),
+                                Math.round(#{consultaCert.retornaNiCrea()})
+                            ]
+                        }]
+                };
+
+                var healthConfig7 = {
+                    labels: ['Health', '', '', '', ''],
+                    datasets: [{
+                            borderColor: [
+                                window.chartColors.blue
+                            ],
+                            borderWidth: 1,
+                            backgroundColor: [
+                                window.chartColors.blue
+                            ],
+                            data: [
+                                Math.round(#{consultaCert.retornaHealth()})
+                            ]
+                        }]
+                };
+
+                var config = {
+                    labels: ['1', '2', '3', '', ''],
+                    datasets: [{
+                            label: '1 - Number of Coutries',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaNumOfCountries()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Semantic Closeness',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaSemanticC()}),
+                                0
+                            ]
+                        }, {
+                            label: '3 - Number of Node Types',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumOfNodesType()})
+                            ]
+                        }]
+                };
+
+                var config2 = {
+                    labels: ['1', '2', '', '', ''],
+                    datasets: [{
+                            label: '1 - Working Time Set',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaTimeWorkTogether()}),
+                                0
+                            ]
+                        }, {
+                            label: '2 - New Members',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfNewMembers()})
+                            ]
+                        }]
+                };
+
+                var config3 = {
+                    labels: ['1', '2', '3', '4', ''],
+                    datasets: [{
+                            label: '1 - Number of Commits',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaDeveloperCommits()}),
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Active Members',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaActiveMembers()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '3 - Participativeness',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfCommunits()}),
+                                0
+                            ]
+                        }, {
+                            label: '4 - Effort Total Set',
+                            backgroundColor: window.chartColors.yellow,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaTotalEffor()})
+                            ]
+                        }]
+                };
+
+                var config4 = {
+                    labels: ['1', '', '', '', ''],
+                    datasets: [{
+                            label: '1 - Participation in Events',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaNumberOfEventParticipants()})
+                            ]
+                        }]
+                };
+
+                var config5 = {
+                    labels: ['1', '2', '3', '4', '5', '6'],
+                    datasets: [{
+                            label: '1 - Number of Downloads',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaNumberOfDownloads()}),
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Job Advertisements',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfJobAdvertisements()}),
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '3 - Number of Readers',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfReaders()}),
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '4 - Scientific Publications',
+                            backgroundColor: window.chartColors.yellow,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfScientificPublication()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '5 - Social Media Hits',
+                            backgroundColor: window.chartColors.purple,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfSocialMediaHits()}),
+                                0
+                            ]
+                        }, {
+                            label: '6 - Web Page Requests',
+                            backgroundColor: window.chartColors.orange,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfWebPageRequests()})
+                            ]
+                        }]
+                };
+
+                var config6 = {
+                    labels: ['1', '2', '3', '4', ''],
+                    datasets: [{
+                            label: '1 - Number of Developers',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaNumberOfDevelopers()}),
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Number Of Users Groups',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfUsersGroups()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '3 - Number of Programming Languages',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfProgrammingLanguages()}),
+                                0
+                            ]
+                        }, {
+                            label: '4 - Plan For Collapse',
+                            backgroundColor: window.chartColors.yellow,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaPlanForCollapse()})
+                            ]
+                        }]
+                };
+
+                var config7 = {
+                    labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
+                    datasets: [{
+                            label: '1 - Projects Added',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaNumberOfProjectsAdded()}),
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Number of Events',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfEvents()}),
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '3 - Number of Artifacts',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfArtifacts()}),
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '4 - Transmitted Messages',
+                            backgroundColor: window.chartColors.yellow,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfTransmittedMessages()}),
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '5 - Bug Fix Time',
+                            backgroundColor: window.chartColors.purple,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaBugFixTime()}),
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '6 - Partners Added',
+                            backgroundColor: window.chartColors.orange,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfPartnersAdded()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '7 - Number of Users',
+                            backgroundColor: 'rgb(0,128,0)',
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfUsers()}),
+                                0
+                            ]
+                        }, {
+                            label: '8 - Average Time Use',
+                            backgroundColor: 'rgb(255, 202, 255)',
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaAverageTimeUse()})
+                            ]
+                        }]
+                };
+
+                var config8 = {
+                    labels: ['1', '2', '3', '4', '5'],
+                    datasets: [{
+                            label: '1 - Nodes Connections',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaNumberOfNodesConnections()}),
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Connectivity Capacity',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaConnectivityCapacity()}),
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '3 - Ratio Connection Capacit',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaRatioConnectionsCapacity()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '4 - Nodes Centrality',
+                            backgroundColor: window.chartColors.yellow,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNodesCentrality()}),
+                                0
+                            ]
+                        }, {
+                            label: '5 - External Partners',
+                            backgroundColor: window.chartColors.purple,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfExternalPartners()})
+                            ]
+                        }]
+                };
+
+                var config10 = {
+                    labels: ['1', '2', '3', '', ''],
+                    datasets: [{
+                            label: '1 - Product Types',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaNumberOfProductTypes()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Greater Collaboration',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaGreaterCollaboration()}),
+                                0
+                            ]
+                        }, {
+                            label: '3 - Active Projects',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfActiveProjects()})
+                            ]
+                        }]
+                };
+
+                var config11 = {
+                    labels: ['1', '2', '3', '4', '5'],
+                    datasets: [{
+                            label: '1 - Number of Partners',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaNumberOfPartners()}),
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Commercial Sponsors',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfCommercialSponsors()}),
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '3 - Contribution Value',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaTotalContributionValue()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '4 - Active Contributors',
+                            backgroundColor: window.chartColors.yellow,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfActiveContributors()}),
+                                0
+                            ]
+                        }, {
+                            label: '5 - Frequent Users',
+                            backgroundColor: window.chartColors.purple,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfFrequentUsers()})
+                            ]
+                        }]
+                };
+
+                var config12 = {
+                    labels: ['1', '2', '3', '4', '5', '6'],
+                    datasets: [{
+                            label: '1 - Have Documentation',
+                            backgroundColor: window.chartColors.red,
+                            //stack: 'Stack 1',
+                            data: [
+                                Math.round(#{consultaCert.retornaHaveDocumentation()}),
+                                0,
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '2 - Number of Contributors Types',
+                            backgroundColor: window.chartColors.grey,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfContributorsTypes()}),
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '3 - Number of Types App Projects',
+                            backgroundColor: window.chartColors.green,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfTypesAppProjects()}),
+                                0,
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '4 - Support Natural Languages',
+                            backgroundColor: window.chartColors.yellow,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaSupportNaturalLanguages()}),
+                                0,
+                                0
+                            ]
+                        }, {
+                            label: '5 - Number of Types Technologies Supported',
+                            backgroundColor: window.chartColors.purple,
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfTypesTechSupported()}),
+                                0
+                            ]
+                        }, {
+                            label: '6 - Number of Types Development Tech Supported',
+                            backgroundColor: 'rgb(0,128,0)',
+                            //stack: 'Stack 1',
+                            data: [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                Math.round(#{consultaCert.retornaNumberOfTypesDevTechSupported()})
+                            ]
+                        }]
+                };
+
+
+                window.onload = function () {
+
+                    var healthctx = document.getElementById('chart-health').getContext('2d');
+                    var healthctx2 = document.getElementById('chart-health2').getContext('2d');
+                    var healthctx3 = document.getElementById('chart-health3').getContext('2d');
+                    var healthctx4 = document.getElementById('chart-health4').getContext('2d');
+                    var healthctx5 = document.getElementById('chart-health5').getContext('2d');
+                    var healthctx6 = document.getElementById('chart-health6').getContext('2d');
+                    var healthctx7 = document.getElementById('chart-health7').getContext('2d');
+                    var healthctx8 = document.getElementById('chart-health8').getContext('2d');
+                    var healthctx11 = document.getElementById('chart-health11').getContext('2d');
+                    var ctx = document.getElementById('chart-area').getContext('2d');
+                    var ctx2 = document.getElementById('chart-area2').getContext('2d');
+                    var ctx3 = document.getElementById('chart-area3').getContext('2d');
+                    var ctx4 = document.getElementById('chart-area4').getContext('2d');
+                    var ctx5 = document.getElementById('chart-area5').getContext('2d');
+                    var ctx6 = document.getElementById('chart-area6').getContext('2d');
+                    var ctx7 = document.getElementById('chart-area7').getContext('2d');
+                    var ctx8 = document.getElementById('chart-area8').getContext('2d');
+                    var ctx10 = document.getElementById('chart-area10').getContext('2d');
+                    var ctx11 = document.getElementById('chart-area11').getContext('2d');
+                    var ctx12 = document.getElementById('chart-area12').getContext('2d');
+                    window.myBar = new Chart(ctx, {
+                        type: 'bar',
+                        data: config,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Heterogeneity'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx2, {
+                        type: 'bar',
+                        data: config2,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Regeneration Ability'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx3, {
+                        type: 'bar',
+                        data: config3,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Effort Balance'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx4, {
+                        type: 'bar',
+                        data: config4,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Expertise Balance'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx5, {
+                        type: 'bar',
+                        data: config5,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Visibility'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx6, {
+                        type: 'bar',
+                        data: config6,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Diversity'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx7, {
+                        type: 'bar',
+                        data: config7,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Productivity'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx8, {
+                        type: 'bar',
+                        data: config8,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Interrelatedness'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx10, {
+                        type: 'bar',
+                        data: config10,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Clustering'
+                            },
+                            tooltips: {
+                                title: function () {
+                                    return '';
+                                },
+                                callbacks: {
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx11, {
+                        type: 'bar',
+                        data: config11,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Financial Consistence'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(ctx12, {
+                        type: 'bar',
+                        data: config12,
+                        options: {
+                            legend: {
+                                position: 'right'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Niche Creation'
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return data.datasets[tooltipItem.datasetIndex].label + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            },
+                            responsive: true,
+                            scales: {
+                                xAxes: [{
+                                        stacked: true
+                                    }],
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(healthctx, {
+                        type: 'bar',
+                        data: healthConfig,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Sustainability Individual Characteristics'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            //type: "percent
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+
+                        }
+
+
+                    });
+                    window.myBar = new Chart(healthctx2, {
+                        type: 'bar',
+                        data: healthConfig2,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Diversity'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            //type: "percent
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(healthctx3, {
+                        type: 'bar',
+                        data: healthConfig3,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Productivity'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            //type: "percent
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(healthctx4, {
+                        type: 'bar',
+                        data: healthConfig4,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Robustness Individual Characteristics'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            //type: "percent
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(healthctx11, {
+                        type: 'bar',
+                        data: healthConfig11,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Robustness'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            //type: "percent
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(healthctx5, {
+                        type: 'bar',
+                        data: healthConfig5,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Niche Creation'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            //type: "percent
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(healthctx6, {
+                        type: 'bar',
+                        data: healthConfig6,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Indicators Distribution'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            categoryPercentage: 0.2,
+                                            barPercentage: 1.1,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(healthctx7, {
+                        type: 'bar',
+                        data: healthConfig7,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Health'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            categoryPercentage: 0.2,
+                                            barPercentage: 1.1,
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    window.myBar = new Chart(healthctx8, {
+                        type: 'bar',
+                        data: healthConfig8,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Sustainability'
+                            },
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            //type: "percent
+                                            callback: function (value, index, values) {
+                                                return  value + '%';
+                                            }
+                                        }
+                                    }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    title: function () {
+                                        return '';
+                                    },
+                                    label: function (tooltipItem, data) {
+                                        return tooltipItem.xLabel + ' - ' + tooltipItem.yLabel + '%';
+                                    }
+                                }
+                            }
+                        }
+                    });
+                };
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    $('[data-toggle="tooltip"]').tooltip();
+                });
+            </script>
+
+        </h:body>
+
+    </f:view>
+</html>

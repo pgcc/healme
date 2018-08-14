@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css"/>
+                <link rel="stylesheet" type="text/css" href="estiloHealme.css"/>
+                <title>HEAL ME</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <div id="topo" class="jumbotron text-left row">
+                <button class="col-lg-1" type="button" data-toggle="collapse" data-target="#menu" aria-expanded="true">
+                    <img src="images/icone.png"/>
+                </button>
+                                
+              <div id="titulo" class="col-sm-10">
+                    <p id="nome"><h1>HEAL ME</h1>
+                        <h5>Health dEfinition Archtecture ontoLogy-based froM sEco</h5>
+                    </p>
+              </div>                
+            </div>
+            
+            <div class="row" style="padding: 10px">
+                <div class="collapse" id="menu">
+                    <p:menu>
+                        <p:submenu label="Registrations">
+                            <p:menuitem value="Platforms" outcome="registration" />
+                            <p:menuitem value="Parameters" outcome="parregistration" />
+                        </p:submenu>
+                        <p:submenu label="View Analysis">
+                            <p:menuitem value="Health Analysis" outcome="platformSelection" />
+                        </p:submenu>
+                         <p:submenu label="Common">
+                            <p:menuitem value="Home Page" outcome="index" />
+                            <p:menuitem value="About" outcome="about" />
+                        </p:submenu>
+                    </p:menu>
+                </div>       
+
+                <div id="corpo" class="side-collapse-container col-lg">
+                    <h2 align="center">Welcome to HEAL ME</h2>
+                    <hr/>
+                    
+                    <br/>
+                    <br/> 
+                </div>
+            </div>
+
+            <br />
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+        </h:body>
+
+    </f:view>
+</html>
+

@@ -1,0 +1,92 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/05/2018, 13:15:10
+    Author     : iuri.carvalho
+*/
+
+body{
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px
+}
+
+.topo{
+    background-color: lightgray;
+    height: 30%;
+    border: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    width: 100%
+}
+
+#blau{
+    background-color: gray;
+    border-radius: 0.3px;
+    margin-bottom: 0px;
+    height: 5%
+}
+
+.icone{
+    border: solid;
+    border-width: 1px;
+    border-color: black
+}
+.titulo{
+    padding: 10px
+}
+
+.tituloRegistration{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.chart{
+    display:inline-block;
+    width:49%;
+    padding: 0;
+    margin: 0;
+}
+
+#charthelth{
+    display:inline-block;
+    width:80%;
+    padding: 0;
+    margin: 0;
+}
+
+#corpo{
+    padding-right: 120px;
+    padding-left: 120px;
+}
+
+.linha{
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+}
+/*.menu{
+    background-color: lightgray;
+    border: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    width: 17.1%;
+    height: 675px;
+    display: inline-block;
+    padding-left: 10px
+}*/
+
+/*.corpo{
+    width: 82.6%;
+    border: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    height: 675px;
+    display: inline-block;
+}*/
