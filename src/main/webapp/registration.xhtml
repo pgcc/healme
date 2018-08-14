@@ -76,6 +76,14 @@
                     <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
                         <p:graphicImage value="/images/loader.gif" />
                     </p:dialog>
+                    
+                    <p:dialog id="teste" header="Teste" widgetVar="dlg1" modal="true" height="400" width="400">
+                            <h:outputText value="Teste"/>
+                            <br/>
+                            <br/>
+                            <p:commandButton value="Import" type="button"/>
+                            <p:commandButton value="Close" type="button" onclick="PF('dlg1').hide()" />
+                    </p:dialog>  
 
 
                     <h:form>
@@ -90,7 +98,10 @@
                                         <f:selectItems value="#{consultaCert.platforms}"/>
                                     </h:selectOneMenu>
                                 </div>
-                                <div class="col-4"><p:commandButton  value="  Load  " actionListener="#{consultaCert.carregaModelSave}"/></div>
+                                <div class="col-4">
+                                    <p:commandButton  value="  Load  " actionListener="#{consultaCert.carregaModelSave}"/>
+                                    <p:commandButton  value="AutoImport" actionListener="PF('dlg1').show()"/>
+                                </div>
                             </div>
                         </div>
                         <br/>                          
