@@ -27,14 +27,10 @@ import org.xml.sax.SAXException;
 import com.thoughtworks.xstream.XStream;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
-import javax.faces.application.FacesMessage;
-import org.primefaces.PrimeFaces;
 import org.primefaces.context.RequestContext;
+import javax.ws.rs.client.ClientBuilder;
 
 /**
  *
@@ -276,58 +272,60 @@ public class ConsultaCert implements Serializable {
         carregaModelSOrigin();
         
         if(this.modelSave.getName() != null && !this.modelSave.getName().equals("")){
-            this.modelSave.setActiveMembersPar(this.modelSOrigin.getActiveMembersPar());
-            this.modelSave.setNumberOfCommunitsPar(this.modelSOrigin.getNumberOfCommunitsPar());
-            this.modelSave.setTotalEfforPar(this.modelSOrigin.getTotalEfforPar());
-            this.modelSave.setNumberOfEventParticipantsPar(this.modelSOrigin.getNumberOfEventParticipantsPar());
-            this.modelSave.setNumberOfJobAdvertisementsPar(this.modelSOrigin.getNumberOfJobAdvertisementsPar());
-            this.modelSave.setNumberOfDownloadsPar(this.modelSOrigin.getNumberOfDownloadsPar());
-            this.modelSave.setNumberOfReadersPar(this.modelSOrigin.getNumberOfReadersPar());
-            this.modelSave.setNumberOfScientificPublicationPar(this.modelSOrigin.getNumberOfScientificPublicationPar());
-            this.modelSave.setNumberOfSocialMediaHitsPar(this.modelSOrigin.getNumberOfSocialMediaHitsPar());
-            this.modelSave.setNumberOfWebPageRequestsPar(this.modelSOrigin.getNumberOfWebPageRequestsPar());
-            this.modelSave.setNumberOfDevelopersPar(this.modelSOrigin.getNumberOfDevelopersPar());
-            this.modelSave.setNumberOfUsersGroupsPar(this.modelSOrigin.getNumberOfUsersGroupsPar());
-            this.modelSave.setNumberOfProgrammingLanguagesSupportedPar(this.modelSOrigin.getNumberOfProgrammingLanguagesSupportedPar());
-            this.modelSave.setExistPlanForCollapsePar(this.modelSOrigin.getExistPlanForCollapsePar());
-            this.modelSave.setNumberOfProjectsAddedPar(this.modelSOrigin.getNumberOfProjectsAddedPar());
-            this.modelSave.setNumberOfEventsPar(this.modelSOrigin.getNumberOfEventsPar());
-            this.modelSave.setNumberOfArtifactsPar(this.modelSOrigin.getNumberOfArtifactsPar());
-            this.modelSave.setNumberOfTransmittedMessagesPar(this.modelSOrigin.getNumberOfTransmittedMessagesPar());
-            this.modelSave.setBugFixTimePar(this.modelSOrigin.getBugFixTimePar());
-            this.modelSave.setNumberOfPartnersAddedPar(this.modelSOrigin.getNumberOfPartnersAddedPar());
-            this.modelSave.setNumberOfUsersPar(this.modelSOrigin.getNumberOfUsersPar());
-            this.modelSave.setAverageTimeUsePar(this.modelSOrigin.getAverageTimeUsePar());
-            this.modelSave.setNumberOfNodesConnectionsPar(this.modelSOrigin.getNumberOfNodesConnectionsPar());
-            this.modelSave.setConnectivityCapacityPar(this.modelSOrigin.getConnectivityCapacityPar());
-            this.modelSave.setRatioConnectionsCapacityPar(this.modelSOrigin.getRatioConnectionsCapacityPar());
-            this.modelSave.setNodesCentralityPar(this.modelSOrigin.getNodesCentralityPar());
-            this.modelSave.setNumberOfExternalPartnersPar(this.modelSOrigin.getNumberOfExternalPartnersPar());
-            this.modelSave.setNumberOfProductTypesPar(this.modelSOrigin.getNumberOfProductTypesPar());
-            this.modelSave.setGreaterCollaborationPar(this.modelSOrigin.getGreaterCollaborationPar());
-            this.modelSave.setNumberOfActiveProjectsPar(this.modelSOrigin.getNumberOfActiveProjectsPar());
-            this.modelSave.setNumberOfPartnersPar(this.modelSOrigin.getNumberOfPartnersPar());
-            this.modelSave.setNumberOfCommercialSponsorsPar(this.modelSOrigin.getNumberOfCommercialSponsorsPar());
-            this.modelSave.setTotalContributionValuePar(this.modelSOrigin.getTotalContributionValuePar());
-            this.modelSave.setNumberOfActiveContributorsPar(this.modelSOrigin.getNumberOfActiveContributorsPar());
-            this.modelSave.setNumberOfFrequentUsersPar(this.modelSOrigin.getNumberOfFrequentUsersPar());
-            this.modelSave.setHaveDocumentationPar(this.modelSOrigin.getHaveDocumentationPar());
-            this.modelSave.setNumberOfContributorsTypesPar(this.modelSOrigin.getNumberOfContributorsTypesPar());
-            this.modelSave.setNumberOfTypesAppProjectsPar(this.modelSOrigin.getNumberOfTypesAppProjectsPar());
-            this.modelSave.setSupportNaturalLanguagesPar(this.modelSOrigin.getSupportNaturalLanguagesPar());
-            this.modelSave.setNumberOfTypesTechSupportedPar(this.modelSOrigin.getNumberOfTypesTechSupportedPar());
-            this.modelSave.setNumberOfTypesDevTechSupportedPar(this.modelSOrigin.getNumberOfTypesDevTechSupportedPar());
-            this.modelSave.setNumberOfCountriesPar(this.modelSOrigin.getNumberOfCountriesPar());
-            this.modelSave.setSemanticClosenessAvgPar(this.modelSOrigin.getSemanticClosenessAvgPar());
-            this.modelSave.setNumberOfNodeTypesPar(this.modelSOrigin.getNumberOfNodeTypesPar());
-            this.modelSave.setTimeWorkTogetherPar(this.modelSOrigin.getTimeWorkTogetherPar());
-            this.modelSave.setNumberOfNewMembersPar(this.modelSOrigin.getNumberOfNewMembersPar());
-            this.modelSave.setDeveloperCommitsPar(this.modelSOrigin.getDeveloperCommitsPar());
+            if(this.modelSave.getName().equals(this.modelSOrigin.getName())){
+                this.modelSave.setActiveMembersPar(this.modelSOrigin.getActiveMembersPar());
+                this.modelSave.setNumberOfCommunitsPar(this.modelSOrigin.getNumberOfCommunitsPar());
+                this.modelSave.setTotalEfforPar(this.modelSOrigin.getTotalEfforPar());
+                this.modelSave.setNumberOfEventParticipantsPar(this.modelSOrigin.getNumberOfEventParticipantsPar());
+                this.modelSave.setNumberOfJobAdvertisementsPar(this.modelSOrigin.getNumberOfJobAdvertisementsPar());
+                this.modelSave.setNumberOfDownloadsPar(this.modelSOrigin.getNumberOfDownloadsPar());
+                this.modelSave.setNumberOfReadersPar(this.modelSOrigin.getNumberOfReadersPar());
+                this.modelSave.setNumberOfScientificPublicationPar(this.modelSOrigin.getNumberOfScientificPublicationPar());
+                this.modelSave.setNumberOfSocialMediaHitsPar(this.modelSOrigin.getNumberOfSocialMediaHitsPar());
+                this.modelSave.setNumberOfWebPageRequestsPar(this.modelSOrigin.getNumberOfWebPageRequestsPar());
+                this.modelSave.setNumberOfDevelopersPar(this.modelSOrigin.getNumberOfDevelopersPar());
+                this.modelSave.setNumberOfUsersGroupsPar(this.modelSOrigin.getNumberOfUsersGroupsPar());
+                this.modelSave.setNumberOfProgrammingLanguagesSupportedPar(this.modelSOrigin.getNumberOfProgrammingLanguagesSupportedPar());
+                this.modelSave.setExistPlanForCollapsePar(this.modelSOrigin.getExistPlanForCollapsePar());
+                this.modelSave.setNumberOfProjectsAddedPar(this.modelSOrigin.getNumberOfProjectsAddedPar());
+                this.modelSave.setNumberOfEventsPar(this.modelSOrigin.getNumberOfEventsPar());
+                this.modelSave.setNumberOfArtifactsPar(this.modelSOrigin.getNumberOfArtifactsPar());
+                this.modelSave.setNumberOfTransmittedMessagesPar(this.modelSOrigin.getNumberOfTransmittedMessagesPar());
+                this.modelSave.setBugFixTimePar(this.modelSOrigin.getBugFixTimePar());
+                this.modelSave.setNumberOfPartnersAddedPar(this.modelSOrigin.getNumberOfPartnersAddedPar());
+                this.modelSave.setNumberOfUsersPar(this.modelSOrigin.getNumberOfUsersPar());
+                this.modelSave.setAverageTimeUsePar(this.modelSOrigin.getAverageTimeUsePar());
+                this.modelSave.setNumberOfNodesConnectionsPar(this.modelSOrigin.getNumberOfNodesConnectionsPar());
+                this.modelSave.setConnectivityCapacityPar(this.modelSOrigin.getConnectivityCapacityPar());
+                this.modelSave.setRatioConnectionsCapacityPar(this.modelSOrigin.getRatioConnectionsCapacityPar());
+                this.modelSave.setNodesCentralityPar(this.modelSOrigin.getNodesCentralityPar());
+                this.modelSave.setNumberOfExternalPartnersPar(this.modelSOrigin.getNumberOfExternalPartnersPar());
+                this.modelSave.setNumberOfProductTypesPar(this.modelSOrigin.getNumberOfProductTypesPar());
+                this.modelSave.setGreaterCollaborationPar(this.modelSOrigin.getGreaterCollaborationPar());
+                this.modelSave.setNumberOfActiveProjectsPar(this.modelSOrigin.getNumberOfActiveProjectsPar());
+                this.modelSave.setNumberOfPartnersPar(this.modelSOrigin.getNumberOfPartnersPar());
+                this.modelSave.setNumberOfCommercialSponsorsPar(this.modelSOrigin.getNumberOfCommercialSponsorsPar());
+                this.modelSave.setTotalContributionValuePar(this.modelSOrigin.getTotalContributionValuePar());
+                this.modelSave.setNumberOfActiveContributorsPar(this.modelSOrigin.getNumberOfActiveContributorsPar());
+                this.modelSave.setNumberOfFrequentUsersPar(this.modelSOrigin.getNumberOfFrequentUsersPar());
+                this.modelSave.setHaveDocumentationPar(this.modelSOrigin.getHaveDocumentationPar());
+                this.modelSave.setNumberOfContributorsTypesPar(this.modelSOrigin.getNumberOfContributorsTypesPar());
+                this.modelSave.setNumberOfTypesAppProjectsPar(this.modelSOrigin.getNumberOfTypesAppProjectsPar());
+                this.modelSave.setSupportNaturalLanguagesPar(this.modelSOrigin.getSupportNaturalLanguagesPar());
+                this.modelSave.setNumberOfTypesTechSupportedPar(this.modelSOrigin.getNumberOfTypesTechSupportedPar());
+                this.modelSave.setNumberOfTypesDevTechSupportedPar(this.modelSOrigin.getNumberOfTypesDevTechSupportedPar());
+                this.modelSave.setNumberOfCountriesPar(this.modelSOrigin.getNumberOfCountriesPar());
+                this.modelSave.setSemanticClosenessAvgPar(this.modelSOrigin.getSemanticClosenessAvgPar());
+                this.modelSave.setNumberOfNodeTypesPar(this.modelSOrigin.getNumberOfNodeTypesPar());
+                this.modelSave.setTimeWorkTogetherPar(this.modelSOrigin.getTimeWorkTogetherPar());
+                this.modelSave.setNumberOfNewMembersPar(this.modelSOrigin.getNumberOfNewMembersPar());
+                this.modelSave.setDeveloperCommitsPar(this.modelSOrigin.getDeveloperCommitsPar());
+            }
 
             Client client;
             WebTarget webTarget;
 
-            client = javax.ws.rs.client.ClientBuilder.newClient();
+            client = ClientBuilder.newClient();
             webTarget = client.target(endpoit);
             String resposta;
             try {
@@ -417,7 +415,7 @@ public class ConsultaCert implements Serializable {
         Client client;
         WebTarget webTarget;
 
-        client = javax.ws.rs.client.ClientBuilder.newClient();
+        client = ClientBuilder.newClient();
         webTarget = client.target(endpoit);
         String resposta;
         try {
@@ -548,6 +546,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumOfCountries() {
+        if(this.model.getNumberOfCountries() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfCountries() * 100) / this.model.getNumberOfCountriesPar();
 
         if (retorno > 100) {
@@ -558,6 +558,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaSemanticC() {
+        if(this.model.getSemanticClosenessAvg() == 0)
+            return 0;
         double retorno = (this.model.getSemanticClosenessAvg() * 100) / this.model.getSemanticClosenessAvgPar();
 
         if (retorno > 100) {
@@ -568,6 +570,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumOfNodesType() {
+        if(this.model.getNumberOfNodeTypes() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfNodeTypes() * 100) / this.model.getNumberOfNodeTypesPar();
 
         if (retorno > 100) {
@@ -583,6 +587,9 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaTimeWorkTogether() {
+        if(this.model.getTimeWorkTogether() == 0)
+            return 0;
+        
         double retorno = (this.model.getTimeWorkTogether() * 100) / this.model.getTimeWorkTogetherPar();
 
         if (retorno > 100) {
@@ -593,6 +600,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfNewMembers() {
+        if(this.model.getNumberOfNewMembers() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfNewMembers() * 100) / this.model.getNumberOfNewMembersPar();
 
         if (retorno > 100) {
@@ -608,6 +617,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaDeveloperCommits() {
+        if(this.model.getDeveloperCommits() == 0)
+            return 0;
         double retorno = (this.model.getDeveloperCommits() * 100) / this.model.getDeveloperCommitsPar();
 
         if (retorno > 100) {
@@ -618,6 +629,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaActiveMembers() {
+        if(this.model.getActiveMembers() == 0)
+            return 0;
         double retorno = (this.model.getActiveMembers() * 100) / this.model.getActiveMembersPar();
 
         if (retorno > 100) {
@@ -628,6 +641,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfCommunits() {
+        if(this.model.getNumberOfCommunits() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfCommunits() * 100) / this.model.getNumberOfCommunitsPar();
 
         if (retorno > 100) {
@@ -638,6 +653,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaTotalEffor() {
+        if(this.model.getTotalEffor() == 0)
+            return 0;
         double retorno = (this.model.getTotalEffor() * 100) / this.model.getTotalEfforPar();
 
         if (retorno > 100) {
@@ -652,6 +669,9 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfEventParticipants() {
+        if(this.model.getNumberOfEventParticipants() == 0)
+            return 0;
+        
         double retorno = (this.model.getNumberOfEventParticipants() * 100) / this.model.getNumberOfEventParticipantsPar();
 
         if (retorno > 100) {
@@ -667,6 +687,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfDownloads() {
+        if(this.model.getNumberOfDownloads() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfDownloads() * 100) / this.model.getNumberOfDownloadsPar();
 
         if (retorno > 100) {
@@ -677,7 +699,9 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfJobAdvertisements() {
-        double retorno = (this.model.getNumberOfJobAdvertisementsPar() * 100) / this.model.getNumberOfJobAdvertisementsPar();
+        if(this.model.getNumberOfJobAdvertisements() == 0)
+            return 0;
+        double retorno = (this.model.getNumberOfJobAdvertisements() * 100) / this.model.getNumberOfJobAdvertisementsPar();
 
         if (retorno > 100) {
             retorno = 100;
@@ -687,6 +711,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfReaders() {
+        if(this.model.getNumberOfReaders() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfReaders() * 100) / this.model.getNumberOfReadersPar();
         if (retorno > 100) {
             retorno = 100;
@@ -696,6 +722,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfScientificPublication() {
+        if(this.model.getNumberOfScientificPublication() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfScientificPublication() * 100) / this.model.getNumberOfScientificPublicationPar();
 
         if (retorno > 100) {
@@ -706,6 +734,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfSocialMediaHits() {
+        if(this.model.getNumberOfSocialMediaHits() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfSocialMediaHits() * 100) / this.model.getNumberOfSocialMediaHitsPar();
 
         if (retorno > 100) {
@@ -716,6 +746,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfWebPageRequests() {
+        if(this.model.getNumberOfWebPageRequests() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfWebPageRequests() * 100) / this.model.getNumberOfWebPageRequestsPar();
 
         if (retorno > 100) {
@@ -735,6 +767,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfDevelopers() {
+        if(this.model.getNumberOfDevelopers() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfDevelopers() * 100) / this.model.getNumberOfDevelopersPar();
 
         if (retorno > 100) {
@@ -745,6 +779,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfUsersGroups() {
+        if(this.model.getNumberOfUsersGroups() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfUsersGroups() * 100) / this.model.getNumberOfUsersGroupsPar();
 
         if (retorno > 100) {
@@ -755,6 +791,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfProgrammingLanguages() {
+        if(this.model.getNumberOfProgrammingLanguagesSupported() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfProgrammingLanguagesSupported() * 100) / this.model.getNumberOfProgrammingLanguagesSupportedPar();
 
         if (retorno > 100) {
@@ -777,6 +815,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfProjectsAdded() {
+        if(this.model.getNumberOfProjectsAdded() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfProjectsAdded() * 100) / this.model.getNumberOfProjectsAddedPar();
 
         if (retorno > 100) {
@@ -787,6 +827,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfEvents() {
+        if(this.model.getNumberOfEvents() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfEvents() * 100) / this.model.getNumberOfEventsPar();
 
         if (retorno > 100) {
@@ -797,6 +839,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfArtifacts() {
+        if(this.model.getNumberOfArtifacts() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfArtifacts() * 100) / this.model.getNumberOfArtifactsPar();
 
         if (retorno > 100) {
@@ -807,6 +851,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfTransmittedMessages() {
+        if(this.model.getNumberOfTransmittedMessages() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfTransmittedMessages() * 100) / this.model.getNumberOfTransmittedMessagesPar();
 
         if (retorno > 100) {
@@ -820,19 +866,24 @@ public class ConsultaCert implements Serializable {
 
         double retorno;
         
+        if(this.model.getBugFixTime() == 0)
+            return 0;
+        
         if(this.model.getBugFixTime() <=  this.model.getBugFixTimePar()){
            retorno = 100; 
         }else if(this.model.getBugFixTime() >= (2 *  this.model.getBugFixTimePar())){
             retorno = 0;
         }else{
             double aux = (this.model.getBugFixTimePar() - this.model.getBugFixTime()) * (-1);
-            retorno = (aux * 100)/this.model.getBugFixTimePar();
+            retorno = ((this.model.getBugFixTimePar() - aux) * 100)/this.model.getBugFixTimePar();
         }
 
         return retorno;
     }
 
     public double retornaNumberOfPartnersAdded() {
+        if(this.model.getNumberOfPartnersAdded() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfPartnersAdded() * 100) / this.model.getNumberOfPartnersAddedPar();
 
         if (retorno > 100) {
@@ -843,6 +894,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfUsers() {
+        if(this.model.getNumberOfUsers() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfUsers() * 100) / this.model.getNumberOfUsersPar();
 
         if (retorno > 100) {
@@ -853,6 +906,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaAverageTimeUse() {
+        if(this.model.getAverageTimeUse() == 0)
+            return 0;
         double retorno = (this.model.getAverageTimeUse() * 100) / this.model.getAverageTimeUsePar();
 
         if (retorno > 100) {
@@ -868,6 +923,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfNodesConnections() {
+        if(this.model.getNumberOfNodesConnections() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfNodesConnections() * 100) / this.model.getNumberOfNodesConnectionsPar();
 
         if (retorno > 100) {
@@ -878,6 +935,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaConnectivityCapacity() {
+        if(this.model.getConnectivityCapacity() == 0)
+            return 0;
         double retorno = (this.model.getConnectivityCapacity() * 100) / this.model.getConnectivityCapacityPar();
 
         if (retorno > 100) {
@@ -887,20 +946,27 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaRatioConnectionsCapacity() {
+        
         double retorno;
+        
+        if(this.model.getRatioConnectionsCapacity() == 0)
+            return 0;
+        
         if(this.model.getRatioConnectionsCapacity() <= this.model.getRatioConnectionsCapacityPar()){
            retorno = 100; 
         }else if(this.model.getRatioConnectionsCapacity() >= (2 * this.model.getRatioConnectionsCapacityPar())){
             retorno = 0;
         }else{
             double aux = ( this.model.getRatioConnectionsCapacityPar() - this.model.getRatioConnectionsCapacity()) * (-1);
-            retorno = (aux * 100)/this.model.getRatioConnectionsCapacityPar();
+            retorno = ((this.model.getRatioConnectionsCapacityPar() - aux) * 100)/this.model.getRatioConnectionsCapacityPar();
         }
 
-        return retorno;
+        return Math.ceil(retorno);
     }
 
     public double retornaNodesCentrality() {
+        if(this.model.getNodesCentrality() == 0)
+            return 0;
         double retorno = (this.model.getNodesCentrality() * 100) / this.model.getNodesCentralityPar();
 
         if (retorno > 100) {
@@ -911,6 +977,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfExternalPartners() {
+        if(this.model.getNumberOfExternalPartners() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfExternalPartners() * 100) / this.model.getNumberOfExternalPartnersPar();
 
         if (retorno > 100) {
@@ -926,6 +994,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfProductTypes() {
+        if(this.model.getNumberOfProductTypes() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfProductTypes() * 100) / this.model.getNumberOfProductTypesPar();
 
         if (retorno > 100) {
@@ -936,6 +1006,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaGreaterCollaboration() {
+        if(this.model.getGreaterCollaboration() == 0)
+            return 0;
         double retorno = (this.model.getGreaterCollaboration() * 100) / this.model.getGreaterCollaborationPar();
 
         if (retorno > 100) {
@@ -946,6 +1018,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfActiveProjects() {
+        if(this.model.getNumberOfActiveProjects() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfActiveProjects() * 100) / this.model.getNumberOfActiveProjectsPar();
 
         if (retorno > 100) {
@@ -961,6 +1035,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfPartners() {
+        if(this.model.getNumberOfPartners() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfPartners() * 100) / this.model.getNumberOfPartnersPar();
 
         if (retorno > 100) {
@@ -971,6 +1047,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfCommercialSponsors() {
+        if(this.model.getNumberOfCommercialSponsors() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfCommercialSponsors() * 100) / this.model.getNumberOfCommercialSponsorsPar();
 
         if (retorno > 100) {
@@ -981,6 +1059,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaTotalContributionValue() {
+        if(this.model.getTotalContributionValue() == 0)
+            return 0;
         double retorno = (this.model.getTotalContributionValue() * 100) / this.model.getTotalContributionValuePar();
 
         if (retorno > 100) {
@@ -991,6 +1071,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfActiveContributors() {
+        if(this.model.getNumberOfActiveContributors() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfActiveContributors() * 100) / this.model.getNumberOfActiveContributorsPar();
 
         if (retorno > 100) {
@@ -1001,6 +1083,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfFrequentUsers() {
+        if(this.model.getNumberOfFrequentUsers() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfFrequentUsers() * 100) / this.model.getNumberOfFrequentUsersPar();
 
         if (retorno > 100) {
@@ -1025,6 +1109,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfContributorsTypes() {
+        if(this.model.getNumberOfContributorsTypes() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfContributorsTypes() * 100) / this.model.getNumberOfContributorsTypesPar();
 
         if (retorno > 100) {
@@ -1035,6 +1121,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfTypesAppProjects() {
+        if(this.model.getNumberOfTypesAppProjects() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfTypesAppProjects() * 100) / this.model.getNumberOfTypesAppProjectsPar();
 
         if (retorno > 100) {
@@ -1051,6 +1139,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfTypesTechSupported() {
+        if(this.model.getNumberOfTypesTechSupported() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfTypesTechSupported() * 100) / this.model.getNumberOfTypesTechSupportedPar();
 
         if (retorno > 100) {
@@ -1061,6 +1151,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaNumberOfTypesDevTechSupported() {
+        if(this.model.getNumberOfTypesDevTechSupported() == 0)
+            return 0;
         double retorno = (this.model.getNumberOfTypesDevTechSupported() * 100) / this.model.getNumberOfTypesDevTechSupportedPar();
 
         if (retorno > 100) {

@@ -198,7 +198,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">Number of Coutries</th>
+                                                    <th scope="row">Number of Countries</th>
                                                     <td><h:outputText value="#{consultaCert.model.numberOfCountries}" /></td>
                                             <td><h:outputText value="#{consultaCert.model.numberOfCountriesPar}" /></td>
                                             <td><h:outputText value="#{consultaCert.retornaNumOfCountries()}%"/></td>
@@ -355,7 +355,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="card-link" data-toggle="collapse" href="#ExBal">
-                                    Expertise Balance
+                                    Expertise
                                 </a>
                             </div>
                             <div id="ExBal" class="collapse" data-parent="#accordion">
@@ -363,7 +363,7 @@
                                     <div>
                                         <div>
                                             <h3>
-                                                Carachteristic: Expertise Balance
+                                                Carachteristic: Expertise
                                                 <br/>
                                                 <br/>
                                             </h3>
@@ -430,18 +430,20 @@
                                                 </thead>
                                                 <tbody>
 
-                                                    <tr>
-                                                        <th scope="row">Tasks  Divulgation</th>
-                                                        <td><h:outputText value="#{consultaCert.model.numberOfJobAdvertisements}" /></td>
-                                                <td><h:outputText value="#{consultaCert.model.numberOfJobAdvertisementsPar}" /></td>
-                                                <td><h:outputText value="#{consultaCert.retornaNumberOfJobAdvertisements()}%"/></td>
-                                                </tr>
+                                                  
 
                                                 <tr>
                                                     <th scope="row">Downloads Made</th>
                                                     <td><h:outputText value="#{consultaCert.model.numberOfDownloads}" /></td>
                                                 <td><h:outputText value="#{consultaCert.model.numberOfDownloadsPar}" /></td>
                                                 <td><h:outputText value="#{consultaCert.retornaNumberOfDownloads()}%"/></td>
+                                                </tr>
+                                                
+                                                  <tr>
+                                                        <th scope="row">Number of Job Advertisements</th>
+                                                        <td><h:outputText value="#{consultaCert.model.numberOfJobAdvertisements}" /></td>
+                                                <td><h:outputText value="#{consultaCert.model.numberOfJobAdvertisementsPar}" /></td>
+                                                <td><h:outputText value="#{consultaCert.retornaNumberOfJobAdvertisements()}%"/></td>
                                                 </tr>
 
                                                 <tr>
@@ -939,7 +941,7 @@
                 var color = Chart.helpers.color;
 
                 var healthConfig = {
-                    labels: ['Heterogeinity', 'Regen.Ability', 'Effort Balance', 'Exp.Balance', 'Visibility'],
+                    labels: ['Heterogeinity', 'Regen.Ability', 'Effort Balance', 'Expertise', 'Visibility'],
                     datasets: [{
                             backgroundColor: [
                                 window.chartColors.red,
@@ -1127,7 +1129,7 @@
                 var config = {
                     labels: ['1', '2', '3', '', ''],
                     datasets: [{
-                            label: '1 - Number of Coutries',
+                            label: '1 - Number of Countries',
                             backgroundColor: window.chartColors.red,
                             //stack: 'Stack 1',
                             data: [
@@ -1845,7 +1847,7 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Expertise Balance'
+                                text: 'Expertise'
                             },
                             tooltips: {
                                 callbacks: {
