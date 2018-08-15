@@ -65,13 +65,6 @@
 
                 </p:megaMenu>  
             </div>
-
-
-   
-
- 
-
- 
             <div id="corpo" class="col-lg">
                 <h2 align="center">Platform Registration</h2>
                 <hr/>
@@ -82,20 +75,7 @@
                         <p:graphicImage value="/images/loader.gif" />
                     </p:dialog>
 
-                     
-                    
-                     
-
-
-                    <h:form>
-   <p:dialog id="grid" header="Teste" widgetVar="dlg1" modal="true"  >
-                                   
-                            <p:commandButton value="Import" type="button"/>
-                            <p:commandButton value="Close" type="button" onclick="PF('dlg1').hide()" />
-                      
-                        </p:dialog> 
-                         
-<p:commandButton value="Modal" type="button" onclick="PF('dlg1').show();" />
+                    <h:form>                    
 
                         <div class="container-fluid">
                             <div class="row border">
@@ -110,7 +90,6 @@
                                 </div>
                                 <div class="col-4">
                                     <p:commandButton  value="  Load  " actionListener="#{consultaCert.carregaModelSave}"/>
-                                    <p:commandButton  value="AutoImport" onclick="PF('dlg1').show();"/>
                                 </div>
                             </div>
                         </div>
