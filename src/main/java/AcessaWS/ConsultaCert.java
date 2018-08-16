@@ -198,6 +198,10 @@ public class ConsultaCert implements Serializable {
             }
         }
     }
+    
+    public void recarregaModelSave(){
+        this.modelSave = new PlatformModel();
+    }
 
     public void carregaModelSave() throws ParserConfigurationException, SAXException, MalformedURLException, IOException {
         URL url = new URL(endpoit + "getplatform/" + this.namePlatform);
@@ -548,7 +552,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumOfCountries() {
         if(this.model.getNumberOfCountries() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfCountries() * 100) / this.model.getNumberOfCountriesPar();
+        double retorno = (this.model.getNumberOfCountries() * 100) /(this.model.getNumberOfCountriesPar() != 0 ? this.model.getNumberOfCountriesPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -560,7 +564,7 @@ public class ConsultaCert implements Serializable {
     public double retornaSemanticC() {
         if(this.model.getSemanticClosenessAvg() == 0)
             return 0;
-        double retorno = (this.model.getSemanticClosenessAvg() * 100) / this.model.getSemanticClosenessAvgPar();
+        double retorno = (this.model.getSemanticClosenessAvg() * 100) / (this.model.getSemanticClosenessAvgPar() != 0  ? this.model.getSemanticClosenessAvgPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -572,7 +576,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumOfNodesType() {
         if(this.model.getNumberOfNodeTypes() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfNodeTypes() * 100) / this.model.getNumberOfNodeTypesPar();
+        double retorno = (this.model.getNumberOfNodeTypes() * 100) / (this.model.getNumberOfNodeTypesPar() != 0 ? this.model.getNumberOfNodeTypesPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -590,7 +594,7 @@ public class ConsultaCert implements Serializable {
         if(this.model.getTimeWorkTogether() == 0)
             return 0;
         
-        double retorno = (this.model.getTimeWorkTogether() * 100) / this.model.getTimeWorkTogetherPar();
+        double retorno = (this.model.getTimeWorkTogether() * 100) / (this.model.getTimeWorkTogetherPar()  != 0 ? this.model.getTimeWorkTogetherPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -602,7 +606,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfNewMembers() {
         if(this.model.getNumberOfNewMembers() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfNewMembers() * 100) / this.model.getNumberOfNewMembersPar();
+        double retorno = (this.model.getNumberOfNewMembers() * 100) / (this.model.getNumberOfNewMembersPar() != 0 ? this.model.getNumberOfNewMembersPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -619,7 +623,7 @@ public class ConsultaCert implements Serializable {
     public double retornaDeveloperCommits() {
         if(this.model.getDeveloperCommits() == 0)
             return 0;
-        double retorno = (this.model.getDeveloperCommits() * 100) / this.model.getDeveloperCommitsPar();
+        double retorno = (this.model.getDeveloperCommits() * 100) / (this.model.getDeveloperCommitsPar() != 0 ? this.model.getDeveloperCommitsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -631,7 +635,7 @@ public class ConsultaCert implements Serializable {
     public double retornaActiveMembers() {
         if(this.model.getActiveMembers() == 0)
             return 0;
-        double retorno = (this.model.getActiveMembers() * 100) / this.model.getActiveMembersPar();
+        double retorno = (this.model.getActiveMembers() * 100) / (this.model.getActiveMembersPar() != 0 ? this.model.getActiveMembersPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -643,7 +647,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfCommunits() {
         if(this.model.getNumberOfCommunits() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfCommunits() * 100) / this.model.getNumberOfCommunitsPar();
+        double retorno = (this.model.getNumberOfCommunits() * 100) / (this.model.getNumberOfCommunitsPar() != 0 ?  this.model.getNumberOfCommunitsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -655,7 +659,7 @@ public class ConsultaCert implements Serializable {
     public double retornaTotalEffor() {
         if(this.model.getTotalEffor() == 0)
             return 0;
-        double retorno = (this.model.getTotalEffor() * 100) / this.model.getTotalEfforPar();
+        double retorno = (this.model.getTotalEffor() * 100) / (this.model.getTotalEfforPar() != 0 ?  this.model.getTotalEfforPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -672,7 +676,7 @@ public class ConsultaCert implements Serializable {
         if(this.model.getNumberOfEventParticipants() == 0)
             return 0;
         
-        double retorno = (this.model.getNumberOfEventParticipants() * 100) / this.model.getNumberOfEventParticipantsPar();
+        double retorno = (this.model.getNumberOfEventParticipants() * 100) / (this.model.getNumberOfEventParticipantsPar() != 0 ? this.model.getNumberOfEventParticipantsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -689,7 +693,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfDownloads() {
         if(this.model.getNumberOfDownloads() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfDownloads() * 100) / this.model.getNumberOfDownloadsPar();
+        double retorno = (this.model.getNumberOfDownloads() * 100) / (this.model.getNumberOfDownloadsPar()  != 0 ? this.model.getNumberOfDownloadsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -701,7 +705,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfJobAdvertisements() {
         if(this.model.getNumberOfJobAdvertisements() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfJobAdvertisements() * 100) / this.model.getNumberOfJobAdvertisementsPar();
+        double retorno = (this.model.getNumberOfJobAdvertisements() * 100) / (this.model.getNumberOfJobAdvertisementsPar() != 0 ? this.model.getNumberOfJobAdvertisementsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -713,7 +717,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfReaders() {
         if(this.model.getNumberOfReaders() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfReaders() * 100) / this.model.getNumberOfReadersPar();
+        double retorno = (this.model.getNumberOfReaders() * 100) / (this.model.getNumberOfReadersPar() != 0 ? this.model.getNumberOfReadersPar() : 1);
         if (retorno > 100) {
             retorno = 100;
         }
@@ -724,7 +728,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfScientificPublication() {
         if(this.model.getNumberOfScientificPublication() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfScientificPublication() * 100) / this.model.getNumberOfScientificPublicationPar();
+        double retorno = (this.model.getNumberOfScientificPublication() * 100) / (this.model.getNumberOfScientificPublicationPar() != 0 ? this.model.getNumberOfScientificPublicationPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -736,7 +740,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfSocialMediaHits() {
         if(this.model.getNumberOfSocialMediaHits() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfSocialMediaHits() * 100) / this.model.getNumberOfSocialMediaHitsPar();
+        double retorno = (this.model.getNumberOfSocialMediaHits() * 100) / (this.model.getNumberOfSocialMediaHitsPar() != 0 ? this.model.getNumberOfSocialMediaHitsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -748,7 +752,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfWebPageRequests() {
         if(this.model.getNumberOfWebPageRequests() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfWebPageRequests() * 100) / this.model.getNumberOfWebPageRequestsPar();
+        double retorno = (this.model.getNumberOfWebPageRequests() * 100) / (this.model.getNumberOfWebPageRequestsPar() != 0 ? this.model.getNumberOfWebPageRequestsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -769,7 +773,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfDevelopers() {
         if(this.model.getNumberOfDevelopers() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfDevelopers() * 100) / this.model.getNumberOfDevelopersPar();
+        double retorno = (this.model.getNumberOfDevelopers() * 100) / (this.model.getNumberOfDevelopersPar() != 0 ? this.model.getNumberOfDevelopersPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -781,7 +785,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfUsersGroups() {
         if(this.model.getNumberOfUsersGroups() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfUsersGroups() * 100) / this.model.getNumberOfUsersGroupsPar();
+        double retorno = (this.model.getNumberOfUsersGroups() * 100) / (this.model.getNumberOfUsersGroupsPar() != 0 ?  this.model.getNumberOfUsersGroupsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -793,7 +797,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfProgrammingLanguages() {
         if(this.model.getNumberOfProgrammingLanguagesSupported() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfProgrammingLanguagesSupported() * 100) / this.model.getNumberOfProgrammingLanguagesSupportedPar();
+        double retorno = (this.model.getNumberOfProgrammingLanguagesSupported() * 100) / (this.model.getNumberOfProgrammingLanguagesSupportedPar() != 0 ? this.model.getNumberOfProgrammingLanguagesSupportedPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -803,7 +807,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaPlanForCollapse() {
-
+        if(this.model.getExistPlanForCollapse() == null || this.model.getExistPlanForCollapse().equals(""))
+            return 0;
         double retorno = (this.model.getExistPlanForCollapse().equals(this.model.getExistPlanForCollapsePar()) ? 1 : 0) * 100.0;
         return retorno;
 
@@ -817,7 +822,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfProjectsAdded() {
         if(this.model.getNumberOfProjectsAdded() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfProjectsAdded() * 100) / this.model.getNumberOfProjectsAddedPar();
+        double retorno = (this.model.getNumberOfProjectsAdded() * 100) /(this.model.getNumberOfProjectsAddedPar() != 0 ? this.model.getNumberOfProjectsAddedPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -829,7 +834,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfEvents() {
         if(this.model.getNumberOfEvents() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfEvents() * 100) / this.model.getNumberOfEventsPar();
+        double retorno = (this.model.getNumberOfEvents() * 100) / (this.model.getNumberOfEventsPar() != 0 ? this.model.getNumberOfEventsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -841,7 +846,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfArtifacts() {
         if(this.model.getNumberOfArtifacts() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfArtifacts() * 100) / this.model.getNumberOfArtifactsPar();
+        double retorno = (this.model.getNumberOfArtifacts() * 100) / (this.model.getNumberOfArtifactsPar() != 0 ? this.model.getNumberOfArtifactsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -853,7 +858,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfTransmittedMessages() {
         if(this.model.getNumberOfTransmittedMessages() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfTransmittedMessages() * 100) / this.model.getNumberOfTransmittedMessagesPar();
+        double retorno = (this.model.getNumberOfTransmittedMessages() * 100) / (this.model.getNumberOfTransmittedMessagesPar() != 0 ? this.model.getNumberOfTransmittedMessagesPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -875,7 +880,7 @@ public class ConsultaCert implements Serializable {
             retorno = 0;
         }else{
             double aux = (this.model.getBugFixTimePar() - this.model.getBugFixTime()) * (-1);
-            retorno = ((this.model.getBugFixTimePar() - aux) * 100)/this.model.getBugFixTimePar();
+            retorno = ((this.model.getBugFixTimePar() - aux) * 100)/(this.model.getBugFixTimePar()  != 0 ? this.model.getBugFixTimePar() : 1);
         }
 
         return retorno;
@@ -884,7 +889,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfPartnersAdded() {
         if(this.model.getNumberOfPartnersAdded() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfPartnersAdded() * 100) / this.model.getNumberOfPartnersAddedPar();
+        double retorno = (this.model.getNumberOfPartnersAdded() * 100) / (this.model.getNumberOfPartnersAddedPar() != 0 ? this.model.getNumberOfPartnersAddedPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -896,7 +901,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfUsers() {
         if(this.model.getNumberOfUsers() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfUsers() * 100) / this.model.getNumberOfUsersPar();
+        double retorno = (this.model.getNumberOfUsers() * 100) / (this.model.getNumberOfUsersPar() != 0 ?  this.model.getNumberOfUsersPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -908,7 +913,7 @@ public class ConsultaCert implements Serializable {
     public double retornaAverageTimeUse() {
         if(this.model.getAverageTimeUse() == 0)
             return 0;
-        double retorno = (this.model.getAverageTimeUse() * 100) / this.model.getAverageTimeUsePar();
+        double retorno = (this.model.getAverageTimeUse() * 100) / (this.model.getAverageTimeUsePar() != 0 ? this.model.getAverageTimeUsePar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -925,7 +930,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfNodesConnections() {
         if(this.model.getNumberOfNodesConnections() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfNodesConnections() * 100) / this.model.getNumberOfNodesConnectionsPar();
+        double retorno = (this.model.getNumberOfNodesConnections() * 100) / (this.model.getNumberOfNodesConnectionsPar() != 0 ? this.model.getNumberOfNodesConnectionsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -937,7 +942,7 @@ public class ConsultaCert implements Serializable {
     public double retornaConnectivityCapacity() {
         if(this.model.getConnectivityCapacity() == 0)
             return 0;
-        double retorno = (this.model.getConnectivityCapacity() * 100) / this.model.getConnectivityCapacityPar();
+        double retorno = (this.model.getConnectivityCapacity() * 100) / (this.model.getConnectivityCapacityPar() != 0 ? this.model.getConnectivityCapacityPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -958,7 +963,7 @@ public class ConsultaCert implements Serializable {
             retorno = 0;
         }else{
             double aux = ( this.model.getRatioConnectionsCapacityPar() - this.model.getRatioConnectionsCapacity()) * (-1);
-            retorno = ((this.model.getRatioConnectionsCapacityPar() - aux) * 100)/this.model.getRatioConnectionsCapacityPar();
+            retorno = ((this.model.getRatioConnectionsCapacityPar() - aux) * 100)/(this.model.getRatioConnectionsCapacityPar()  != 0 ? this.model.getRatioConnectionsCapacityPar() : 1);
         }
 
         return Math.ceil(retorno);
@@ -967,7 +972,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNodesCentrality() {
         if(this.model.getNodesCentrality() == 0)
             return 0;
-        double retorno = (this.model.getNodesCentrality() * 100) / this.model.getNodesCentralityPar();
+        double retorno = (this.model.getNodesCentrality() * 100) / (this.model.getNodesCentralityPar()  != 0 ?  this.model.getNodesCentralityPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -979,7 +984,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfExternalPartners() {
         if(this.model.getNumberOfExternalPartners() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfExternalPartners() * 100) / this.model.getNumberOfExternalPartnersPar();
+        double retorno = (this.model.getNumberOfExternalPartners() * 100) / (this.model.getNumberOfExternalPartnersPar()  != 0 ?  this.model.getNumberOfExternalPartnersPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -996,7 +1001,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfProductTypes() {
         if(this.model.getNumberOfProductTypes() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfProductTypes() * 100) / this.model.getNumberOfProductTypesPar();
+        double retorno = (this.model.getNumberOfProductTypes() * 100) / (this.model.getNumberOfProductTypesPar() != 0 ? this.model.getNumberOfProductTypesPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1008,7 +1013,7 @@ public class ConsultaCert implements Serializable {
     public double retornaGreaterCollaboration() {
         if(this.model.getGreaterCollaboration() == 0)
             return 0;
-        double retorno = (this.model.getGreaterCollaboration() * 100) / this.model.getGreaterCollaborationPar();
+        double retorno = (this.model.getGreaterCollaboration() * 100) / (this.model.getGreaterCollaborationPar()  != 0 ?  this.model.getGreaterCollaborationPar()  : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1020,7 +1025,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfActiveProjects() {
         if(this.model.getNumberOfActiveProjects() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfActiveProjects() * 100) / this.model.getNumberOfActiveProjectsPar();
+        double retorno = (this.model.getNumberOfActiveProjects() * 100) / (this.model.getNumberOfActiveProjectsPar()  != 0 ? this.model.getNumberOfActiveProjectsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1037,7 +1042,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfPartners() {
         if(this.model.getNumberOfPartners() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfPartners() * 100) / this.model.getNumberOfPartnersPar();
+        double retorno = (this.model.getNumberOfPartners() * 100) / (this.model.getNumberOfPartnersPar()  != 0 ? this.model.getNumberOfPartnersPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1049,7 +1054,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfCommercialSponsors() {
         if(this.model.getNumberOfCommercialSponsors() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfCommercialSponsors() * 100) / this.model.getNumberOfCommercialSponsorsPar();
+        double retorno = (this.model.getNumberOfCommercialSponsors() * 100) / (this.model.getNumberOfCommercialSponsorsPar() != 0 ?  this.model.getNumberOfCommercialSponsorsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1061,7 +1066,7 @@ public class ConsultaCert implements Serializable {
     public double retornaTotalContributionValue() {
         if(this.model.getTotalContributionValue() == 0)
             return 0;
-        double retorno = (this.model.getTotalContributionValue() * 100) / this.model.getTotalContributionValuePar();
+        double retorno = (this.model.getTotalContributionValue() * 100) / (this.model.getTotalContributionValuePar()  != 0 ? this.model.getTotalContributionValuePar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1073,7 +1078,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfActiveContributors() {
         if(this.model.getNumberOfActiveContributors() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfActiveContributors() * 100) / this.model.getNumberOfActiveContributorsPar();
+        double retorno = (this.model.getNumberOfActiveContributors() * 100) / (this.model.getNumberOfActiveContributorsPar()  != 0 ? this.model.getNumberOfActiveContributorsPar()  : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1085,7 +1090,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfFrequentUsers() {
         if(this.model.getNumberOfFrequentUsers() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfFrequentUsers() * 100) / this.model.getNumberOfFrequentUsersPar();
+        double retorno = (this.model.getNumberOfFrequentUsers() * 100) / (this.model.getNumberOfFrequentUsersPar()  != 0 ? this.model.getNumberOfFrequentUsersPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1104,6 +1109,8 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaHaveDocumentation() {
+        if(this.model.getHaveDocumentation()== null || this.model.getHaveDocumentation().equals(""))
+            return 0;
         double retorno = (this.model.getHaveDocumentation().equals(this.model.getHaveDocumentationPar()) ? 1.0 : 0.0) * 100.0;
         return retorno;
     }
@@ -1111,7 +1118,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfContributorsTypes() {
         if(this.model.getNumberOfContributorsTypes() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfContributorsTypes() * 100) / this.model.getNumberOfContributorsTypesPar();
+        double retorno = (this.model.getNumberOfContributorsTypes() * 100) / (this.model.getNumberOfContributorsTypesPar()  != 0 ? this.model.getNumberOfContributorsTypesPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1123,7 +1130,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfTypesAppProjects() {
         if(this.model.getNumberOfTypesAppProjects() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfTypesAppProjects() * 100) / this.model.getNumberOfTypesAppProjectsPar();
+        double retorno = (this.model.getNumberOfTypesAppProjects() * 100) / (this.model.getNumberOfTypesAppProjectsPar()  != 0 ? this.model.getNumberOfTypesAppProjectsPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1133,6 +1140,9 @@ public class ConsultaCert implements Serializable {
     }
 
     public double retornaSupportNaturalLanguages() {
+        if(this.model.getSupportNaturalLanguages() == null || this.model.getSupportNaturalLanguages().equals(""))
+            return 0;
+        
         double retorno = (this.model.getSupportNaturalLanguages().equals(this.model.getSupportNaturalLanguagesPar()) ? 1.0 : 0.0) * 100.0;
 
         return retorno;
@@ -1141,7 +1151,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfTypesTechSupported() {
         if(this.model.getNumberOfTypesTechSupported() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfTypesTechSupported() * 100) / this.model.getNumberOfTypesTechSupportedPar();
+        double retorno = (this.model.getNumberOfTypesTechSupported() * 100) / (this.model.getNumberOfTypesTechSupportedPar()  != 0 ?  this.model.getNumberOfTypesTechSupportedPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
@@ -1153,7 +1163,7 @@ public class ConsultaCert implements Serializable {
     public double retornaNumberOfTypesDevTechSupported() {
         if(this.model.getNumberOfTypesDevTechSupported() == 0)
             return 0;
-        double retorno = (this.model.getNumberOfTypesDevTechSupported() * 100) / this.model.getNumberOfTypesDevTechSupportedPar();
+        double retorno = (this.model.getNumberOfTypesDevTechSupported() * 100) / (this.model.getNumberOfTypesDevTechSupportedPar()  != 0 ? this.model.getNumberOfTypesDevTechSupportedPar() : 1);
 
         if (retorno > 100) {
             retorno = 100;
