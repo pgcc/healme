@@ -426,15 +426,15 @@ public class ConsultaCert implements Serializable {
             resposta = webTarget.path("edit").request(javax.ws.rs.core.MediaType.APPLICATION_XML).post(javax.ws.rs.client.Entity.entity(this.modelSave, javax.ws.rs.core.MediaType.APPLICATION_XML), String.class);
             if(resposta.equals("ok")){
                this.titulo = "Success";
-               this.mensage = "Sucess while save platform";
+               this.mensage = "Sucess while save parameters";
             }else{
                this.titulo = "Error";
-               this.mensage = "Error while save platform: " + resposta;
+               this.mensage = "Error while save parameters: " + resposta;
             }
         } catch (Exception e) {
             e.printStackTrace();
             this.titulo = "Error";
-            this.mensage = "Error while save platform: " + e.getMessage();
+            this.mensage = "Error while save parameters: " + e.getMessage();
         }finally{
             RequestContext.getCurrentInstance().execute("PF('dlg2').show();");
         }
