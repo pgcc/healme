@@ -82,7 +82,7 @@
                             <div class="col-12 border badge badge-light"><h5>Auto Import</h5></div>
                         </div>
                         <div class="row border">
-                            <div class="col-12">
+                            <div class="col-12"  data-toggle="tooltip" data-placement="bottom" title="Click in Import button to automatic data importation through API's Endpoints">
                                 <h:panelGrid columns="1" cellpadding="5">
                                     <p:commandButton  value="Import" onclick="PF('dlg1').show();"/>
                                 </h:panelGrid>
@@ -150,7 +150,9 @@
                                         <f:selectItems value="#{consultaCert.platforms}"/>
                                     </h:selectOneMenu>
                                 </div>
-                                <div class="col-4"><p:commandButton  value="  Load  " actionListener="#{consultaCert.carregaModelSave}"/></div>
+                                <div class="col-4" data-toggle="tooltip" data-placement="bottom" title="For guidelines on completing the platform data, their measurement and formula, see the Metrics Table.">
+                                    <p:commandButton  value="  Load  " actionListener="#{consultaCert.carregaModelSave}"/>
+                                </div>
                             </div>
                         </div>
                         <br/>                          
@@ -160,7 +162,7 @@
                             </div>
                             <div class="row border">
                                 <div class="col-6" align="right">Platform Name:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.name}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="Set a name to identificate the platform"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.name}"/></div>
                             </div>
                             <div class="row border">
                                 <div class="col-12 border badge badge-light"><h5>Sustainability</h5></div>
@@ -170,11 +172,11 @@
                             </div>
                             <div class="row border">
                                 <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Number of countries :</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfCountries}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 3 in Metric Table">Semantic closeness:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.semanticClosenessAvg}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 5 in Metric Table">Node types: </div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfNodeTypes}"/></div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0" value="#{consultaCert.modelSave.numberOfCountries}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 2 in Metric Table">Semantic closeness:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.semanticClosenessAvg}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 3 in Metric Table">Node types: </div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfNodeTypes}"/></div>
 
                             </div>
                             <div class="row border">
@@ -182,27 +184,27 @@
                             </div>
                             <div class="row border">
                                 <div class="col-2 border"></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 7 in Metric Table">Working Time Set:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.timeWorkTogether}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 9 in Metric Table">New Members:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfNewMembers}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 4 in Metric Table">Working Time Set:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.timeWorkTogether}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 5 in Metric Table">New Members:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfNewMembers}"/></div>
                                 <div class="col-2 border"></div>
                             </div>
                             <div class="row border">
                                 <div class="col-12 border badge badge-light"><h5>Effort Balance</h5></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 11 in Metric Table">Number of Commits: </div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.developerCommits}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 13 in Metric Table">Active Members:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.activeMembers}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 15 in Metric Table">Participativeness:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfCommunits}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 6 in Metric Table">Number of Commits: </div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.developerCommits}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 7 in Metric Table">Active Members:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.activeMembers}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 8 in Metric Table">Participativeness:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfCommunits}"/></div>
                             </div>
                             <div class="row border">
                                 <div class="col-4 border"></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 17 in Metric Table">Effort Total Set:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.totalEffor}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 9 in Metric Table">Effort Total Set:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.totalEffor}"/></div>
                                 <div class="col-4 border"></div>
                             </div>
                             <div class="row border">
@@ -210,8 +212,8 @@
                             </div>
                             <div class="row border">
                                 <div class="col-4 border"></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 19 in Metric Table">Participation in events:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfEventParticipants}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 10 in Metric Table">Participation in events:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfEventParticipants}"/></div>
                                 <div class="col-4 border"></div>
                             </div>
 
@@ -219,63 +221,63 @@
                                 <div class="col-12 border badge badge-light"><h5>Visibility</h5></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 21 in Metric Table">Tasks  Divulgation:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfJobAdvertisements}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 23 in Metric Table">Downloads Made:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfDownloads}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 25 in Metric Table">Number of Readers:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfReaders}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 11 in Metric Table">Tasks  Divulgation:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfJobAdvertisements}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 12 in Metric Table">Downloads Made:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfDownloads}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 13 in Metric Table">Number of Readers:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfReaders}"/></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 27 in Metric Table">Scientific publications:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfScientificPublication}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 29 in Metric Table">Quotes on Social Media and Blogs:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfSocialMediaHits}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 31 in Metric Table">Web page requests:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfWebPageRequests}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 14 in Metric Table">Scientific publications:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfScientificPublication}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 15 in Metric Table">Quotes on Social Media and Blogs:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfSocialMediaHits}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 16 in Metric Table">Web page requests:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfWebPageRequests}"/></div>
                             </div>
                             <div class="row border">
                                 <div class="col-12 border badge badge-light"><h5>Diversity</h5></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 33 in Metric Table">Number of Developers:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 34 in Metric Table"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfDevelopers}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 35 in Metric Table">Users Groups:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 36 in Metric Table"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfUsersGroups}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 37 in Metric Table">Supported Programming Languages:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 38 in Metric Table"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfProgrammingLanguagesSupported}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 17 in Metric Table">Number of Developers:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfDevelopers}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 18 in Metric Table">Users Groups:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfUsersGroups}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 19 in Metric Table">Supported Programming Languages:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfProgrammingLanguagesSupported}"/></div>
                             </div>
                             <div class="row border">
                                 <div class="col-4 border"></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 39 in Metric Table">Plan for Collapse:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 40 in Metric Table"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.existPlanForCollapse}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 20 in Metric Table">Plan for Collapse:</div>
+                                <div class="col-2 border linha"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.existPlanForCollapse}"/></div>
                                 <div class="col-4 border"></div>
                             </div>
                             <div class="row border">
                                 <div class="col-12 border badge badge-light"><h5>Productivity</h5></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 41 in Metric Table">New Projects:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 42 in Metric Table"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfProjectsAdded}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 43 in Metric Table">Community Events:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 44 in Metric Table"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfEvents}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 45 in Metric Table">Artifacts Added:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 46 in Metric Table"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfArtifacts}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 21 in Metric Table">New Projects:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfProjectsAdded}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 22 in Metric Table">Community Events:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfEvents}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 23 in Metric Table">Artifacts Added:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfArtifacts}"/></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Transmitted Messages:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfTransmittedMessages}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Average of fix errors time:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.bugFixTime}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Partners added:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfPartnersAdded}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 24 in Metric Table">Transmitted Messages:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfTransmittedMessages}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 25 in Metric Table">Average of fix errors time:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.bugFixTime}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 26 in Metric Table">Partners added:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfPartnersAdded}"/></div>
                             </div>
                             <div class="row border">
                                 <div class="col-2 border"></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Number of Users:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfUsers}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Average Usage Time:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.averageTimeUse}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 27 in Metric Table">Number of Users:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfUsers}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 28 in Metric Table">Average Usage Time:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.averageTimeUse}"/></div>
                                 <div class="col-2 border"></div>
                             </div>
 
@@ -287,19 +289,19 @@
                                 <div class="col-12 border badge badge-light"><h5>Interrelatedness</h5></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Number of Connections:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control"  value="#{consultaCert.modelSave.numberOfNodesConnections}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Connectivity Capacity:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.connectivityCapacity}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Ratio Between Number of Connections and Capacity:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.ratioConnectionsCapacity}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 29 in Metric Table">Number of Connections:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"   value="#{consultaCert.modelSave.numberOfNodesConnections}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 30 in Metric Table">Connectivity Capacity:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.connectivityCapacity}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 31 in Metric Table">Ratio Between Number of Connections and Capacity:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.ratioConnectionsCapacity}"/></div>
                             </div>
                             <div class="row border">
                                 <div class="col-2 border"></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Nodes  Centrality:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.nodesCentrality}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">External Partners:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfExternalPartners}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 32 in Metric Table">Nodes  Centrality:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.nodesCentrality}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 33 in Metric Table">External Partners:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfExternalPartners}"/></div>
                                 <div class="col-2 border"></div>
                             </div>
 
@@ -307,31 +309,31 @@
                                 <div class="col-12 border badge badge-light"><h5>Clustering</h5></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Product Types:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfProductTypes}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Greater Collaboration:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.greaterCollaboration}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Active Projects:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfActiveProjects}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 34 in Metric Table">Product Types:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfProductTypes}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 35 in Metric Table">Greater Collaboration:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.greaterCollaboration}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 36 in Metric Table">Active Projects:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfActiveProjects}"/></div>
                             </div>
 
                             <div class="row border">
                                 <div class="col-12 border badge badge-light"><h5>Financial Consistence</h5></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Number of Partners:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfPartners}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Commercial Sponsorship:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfCommercialSponsors}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Total Contribution Value:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.totalContributionValue}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 37 in Metric Table">Number of Partners:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfPartners}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 38 in Metric Table">Commercial Sponsorship:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfCommercialSponsors}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 39 in Metric Table">Total Contribution Value:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.totalContributionValue}"/></div>
                             </div>
                             <div class="row border">
                                 <div class="col-2 border"></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Active Contributors:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfActiveContributors}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Frequently Users:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfFrequentUsers}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 40 in Metric Table">Active Contributors:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfActiveContributors}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 41 in Metric Table">Frequently Users:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfFrequentUsers}"/></div>
                                 <div class="col-2 border"></div>
                             </div>
 
@@ -339,27 +341,33 @@
                                 <div class="col-12 border badge badge-light"><h5>Niche Creation</h5></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Documentation:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.haveDocumentation}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Types of Contributors:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfContributorsTypes}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Types of Application Projects:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfTypesAppProjects}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 42 in Metric Table">Documentation:</div>
+                                <div class="col-2 border linha"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.haveDocumentation}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 43 in Metric Table">Types of Contributors:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfContributorsTypes}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 44 in Metric Table">Types of Application Projects:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfTypesAppProjects}"/></div>
                             </div>
                             <div class="row border">
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Natural Language Support:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.supportNaturalLanguages}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Supported Technologies:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" ><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.numberOfTypesTechSupported}"/></div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table">Supported Development Technologies:</div>
-                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 1 in Metric Table"><input type="text" class="form-control" value="#{consultaCert.modelSave.numberOfTypesDevTechSupported}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 45 in Metric Table">Natural Language Support:</div>
+                                <div class="col-2 border linha"><p:inputText type="text" class="form-control" value="#{consultaCert.modelSave.supportNaturalLanguages}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 46 in Metric Table">Supported Technologies:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0"  value="#{consultaCert.modelSave.numberOfTypesTechSupported}"/></div>
+                                <div class="col-2 border linha" data-toggle="tooltip" data-placement="bottom" title="See the specification of metric 47 in Metric Table">Supported Development Technologies:</div>
+                                <div class="col-2 border linha"><p:inputNumber size="16" decimalPlaces="0" value="#{consultaCert.modelSave.numberOfTypesDevTechSupported}"/></div>
                             </div>
 
 
                             <div class="row border">
-                                <div class="col-4 border"><p:commandButton value="New" action="#{consultaCert.recarregaModelSave}" onclick='parent.location = "javascript:location.reload()"'/></div>
-                                <div class="col-4 border"><p:commandButton id="salva" value="Save" action="#{consultaCert.editModel()}"/></div>
-                                <div class="col-4 border"><p:commandButton value="Cancel" action="#{consultaCert.recarregaModelSave}" onclick='parent.location = "javascript:location.reload()"'/></div>
+                                <div class="col-4 border" data-toggle="tooltip" data-placement="bottom" title="Create a new platform register">
+                                    <p:commandButton value="New" action="#{consultaCert.recarregaModelSave}" onclick='parent.location = "javascript:location.reload()"'/>
+                                </div>
+                                <div class="col-4 border" data-toggle="tooltip" data-placement="bottom" title="Save the platforma data">
+                                    <p:commandButton id="salva" value="Save" action="#{consultaCert.editModel()}"/>
+                                </div>
+                                <div class="col-4 border" data-toggle="tooltip" data-placement="bottom" title="Cancel registration">
+                                    <p:commandButton value="Cancel" action="#{consultaCert.recarregaModelSave}" onclick='parent.location = "javascript:location.reload()"'/>
+                                </div>
                             </div>
                         </div>
                         <p:dialog id="teste" header="#{consultaCert.titulo}" widgetVar="dlg2" modal="true" height="100">
