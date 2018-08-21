@@ -76,7 +76,7 @@
                         <p:graphicImage value="/images/loader.gif" />
                     </p:dialog>
 
-                    
+
                     <div class="container-fluid">
                         <div class="row border">
                             <div class="col-12 border badge badge-light"><h5>Auto Import</h5></div>
@@ -90,52 +90,57 @@
                         </div>
                     </div>
 
-                    <p:dialog header="AutoImport" modal="true" widgetVar="dlg1" minHeight="40">
-                        <h:form>
-                        <div>
-                            <table id="tabela" class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Metric</th>
-                                        <th scope="col">EndPoint</th>
+                    <h:form id="formImport">
+                    <p:dialog header="AutoImport" modal="true" widgetVar="dlg1" minHeight="40" width="1000">
+                        
+                            <div>
+                                <table id="tabela" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Metric</th>
+                                            <th scope="col">EndPoint</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> <h:selectOneMenu value="#{consultaCert.importum}" required="true" label="Platform:">
+                                        <f:selectItems value="#{consultaCert.metrics}"/>
+                                    </h:selectOneMenu></td>
+                                    <td><p:inputText type="text" class="form-control" value="#{consultaCert.endpointimportum}" /></td>
                                     </tr>
-                                </thead>
-                                <tbody>
                                     <tr>
-                                        <td> <h:selectOneMenu value="#{consultaCert.namePlatform}" required="true" label="Platform:">
-                                    <f:selectItems value="#{consultaCert.platforms}"/>
-                                </h:selectOneMenu></td>
-                                <td><p:inputText type="text" class="form-control" /></td>
-                                </tr>
-                                <tr>
-                                    <td> <h:selectOneMenu value="#{consultaCert.namePlatform}" required="true" label="Platform:">
-                                    <f:selectItems value="#{consultaCert.platforms}"/>
-                                </h:selectOneMenu></td>
-                                <td><p:inputText type="text" class="form-control" /></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                <h:selectOneMenu  value="#{consultaCert.namePlatform}" required="true" label="Platform:">
-                                    <f:selectItems value="#{consultaCert.platforms}"/>
-                                </h:selectOneMenu>
-                                </td>
-                                <td><p:inputText type="text" class="form-control" /></td>
-                                </tr>
-                                <tr>
-                                    <td> <h:selectOneMenu value="#{consultaCert.namePlatform}" required="true" label="Platform:">
-                                    <f:selectItems value="#{consultaCert.platforms}"/>
-                                </h:selectOneMenu></td>
-                                <td><p:inputText type="text" class="form-control" /></td>
-                                </tr>
-                                </tbody>
-                            </table>	
-                        </div>    
+                                        <td> <h:selectOneMenu value="#{consultaCert.importdois}" required="true" label="Platform:">
+                                        <f:selectItems value="#{consultaCert.metrics}"/>
+                                    </h:selectOneMenu></td>
+                                    <td><p:inputText type="text" class="form-control" value="#{consultaCert.endpointimportdois}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                    <h:selectOneMenu  value="#{consultaCert.importtres}" required="true" label="Platform:">
+                                        <f:selectItems value="#{consultaCert.metrics}"/>
+                                    </h:selectOneMenu>
+                                    </td>
+                                    <td><p:inputText type="text" class="form-control" value="#{consultaCert.endpointimporttres}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <h:selectOneMenu value="#{consultaCert.importquatro}" required="true" label="Platform:">
+                                        <f:selectItems value="#{consultaCert.metrics}"/>
+                                    </h:selectOneMenu></td>
+                                    <td><p:inputText type="text" class="form-control" value="#{consultaCert.endpointimportquatro}" /></td>
+                                    </tr>
+                                    </tbody>
+                                </table>	
+                            </div>    
 
-                        <p:commandButton value="Import" type="button"/>
-                        <p:commandButton value="Close" type="button" onclick="PF('dlg1').hide()" />
-                        </h:form>
+                        <p:commandButton id="importa" update="formImport" value="Import" type="button" action="#{consultaCert.importaDados()}"/>
+                            <p:commandButton value="Close" type="button" onclick="PF('dlg1').hide()" />
+                        
+                        
+                          
                     </p:dialog>
-                    
+                        </h:form>
+
+                  
 
 
                     <h:form>
@@ -389,13 +394,13 @@
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
-            
+
             <script>
-                $(document).ready(function () {
-                    $('[data-toggle="tooltip"]').tooltip();
-                });
+                                $(document).ready(function () {
+                                    $('[data-toggle="tooltip"]').tooltip();
+                                });
             </script>
-            
+
         </h:body>
 
     </f:view>

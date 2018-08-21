@@ -54,7 +54,84 @@ public class ConsultaCert implements Serializable {
     
     private String mensage;
     private String titulo;
-    private String icone;
+    
+    private String importum;
+    private String importdois;
+    private String importtres;
+    private String importquatro;
+    
+    private String endpointimportum;
+    private String endpointimportdois;
+    private String endpointimporttres;
+    private String endpointimportquatro;
+
+    public String getImportum() {
+        return importum;
+    }
+
+    public void setImportum(String importum) {
+        this.importum = importum;
+    }
+
+    public String getImportdois() {
+        return importdois;
+    }
+
+    public void setImportdois(String importdois) {
+        this.importdois = importdois;
+    }
+
+    public String getImporttres() {
+        return importtres;
+    }
+
+    public void setImporttres(String importtres) {
+        this.importtres = importtres;
+    }
+
+    public String getImportquatro() {
+        return importquatro;
+    }
+
+    public void setImportquatro(String importquatro) {
+        this.importquatro = importquatro;
+    }
+    
+
+    public String getEndpointimportum() {
+        return endpointimportum;
+    }
+
+    public void setEndpointimportum(String endpointimportum) {
+        this.endpointimportum = endpointimportum;
+    }
+
+    public String getEndpointimportdois() {
+        return endpointimportdois;
+    }
+
+    public void setEndpointimportdois(String endpointimportdois) {
+        this.endpointimportdois = endpointimportdois;
+    }
+
+    public String getEndpointimporttres() {
+        return endpointimporttres;
+    }
+
+    public void setEndpointimporttres(String endpointimporttres) {
+        this.endpointimporttres = endpointimporttres;
+    }
+
+    public String getEndpointimportquatro() {
+        return endpointimportquatro;
+    }
+
+    public void setEndpointimportquatro(String endpointimportquatro) {
+        this.endpointimportquatro = endpointimportquatro;
+    }
+    
+        
+    
 
     public String getMensage() {
         return mensage;
@@ -70,74 +147,6 @@ public class ConsultaCert implements Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getIcone() {
-        return icone;
-    }
-
-    public void setIcone(String icone) {
-        this.icone = icone;
-    }
-    
-    
-    
-    
-    
-
-    private boolean newRegister = true;
-    private boolean save;
-    private boolean edit;
-    private boolean editReg;
-    private boolean delete;
-    private boolean cancel;
-
-    public boolean isEditReg() {
-        return editReg;
-    }
-
-    public void setEditReg(boolean editReg) {
-        this.editReg = editReg;
-    }
-
-    public boolean isDelete() {
-        return delete;
-    }
-
-    public void setDelete(boolean delete) {
-        this.delete = delete;
-    }
-
-    public boolean isCancel() {
-        return cancel;
-    }
-
-    public void setCancel(boolean cancel) {
-        this.cancel = cancel;
-    }
-
-    public boolean isNewRegister() {
-        return newRegister;
-    }
-
-    public void setNewRegister(boolean newRegister) {
-        this.newRegister = newRegister;
-    }
-
-    public boolean isSave() {
-        return save;
-    }
-
-    public void setSave(boolean save) {
-        this.save = save;
-    }
-
-    public boolean isEdit() {
-        return edit;
-    }
-
-    public void setEdit(boolean edit) {
-        this.edit = edit;
     }
 
     public PlatformModel getModel() {
@@ -179,16 +188,71 @@ public class ConsultaCert implements Serializable {
         this.namePlatforms[0] = "Teste";
         this.namePlatform = this.namePlatforms[0];
     }
+    
+    private String metrics[] = {
+        "Active Members",
+        "Number Of Communits",
+        "Total Effor",
+        "Number Of Event Participants",
+        "Number Of Job Advertisements",
+        "Number Of Downloads",
+        "Number Of Readers",
+        "Number Of Scientific Publication",
+        "Number Of Social Media Hits",
+        "Number Of Web Page Requests",
+        "Number Of Developers",
+        "Number Of Users Groups",
+        "Number Of Programming Languages Supported",
+        "Exist Plan For Collapse",
+        "Number Of Projects Added",
+        "Number Of Events",
+        "Number Of Artifacts",
+        "Number Of Transmitted Messages",
+        "Bug Fix Time",
+        "Number Of Partners Added",
+        "Number Of Users",
+        "Average Time Use",
+        "Number Of Nodes Connections",
+        "Connectivity Capacity",
+        "Ratio Connections Capacity",
+        "Nodes Centrality",
+        "Number Of External Partners",
+        "Number Of Product Types",
+        "Greater Collaboration",
+        "Number Of Active Projects",
+        "Number Of Partners",
+        "Number Of Commercial Sponsors",
+        "Total Contribution Value",
+        "Number Of Active Contributors",
+        "Number Of Frequent Users",
+        "Have Documentation",
+        "Number Of Contributors Types",
+        "Number Of Types App Projects",
+        "Support Natural Languages",
+        "Number Of Types Tech Supported",
+        "Number Of Types Dev Tech Supported",
+        "Number Of Countries",
+        "Semantic ClosenessAvg",
+        "Number Of Node Types",
+        "Time Work Together",
+        "Number Of New Members",
+        "Developer Commits"
+    };
 
-    /*@PostConstruct
-    public void init() {
-        this.editReg = true;
-        this.newRegister = false;
-        this.save = true;
-        this.edit = true;
-        this.cancel = true;
-        this.delete = true;
-    }*/
+    public String[] getMetrics() {
+        return metrics;
+    }
+    
+    
+    public void importaDados(){
+        this.titulo = "Test";
+        this.mensage = "Testing importation: ";
+        //RequestContext.getCurrentInstance().execute("PF('dlg3').show();");
+        
+        
+        //RequestContext.getCurrentInstance().execute("PF('dlg1').hide();");
+    } 
+
     public void carregaModel() throws ParserConfigurationException, SAXException {
         this.getData();
         for (int i = 0; i < this.Lista.size(); i++) {
@@ -230,7 +294,6 @@ public class ConsultaCert implements Serializable {
 
             this.modelSave = (PlatformModel) xstream.fromXML(output);
             this.modelSOrigin = this.modelSave;
-            this.newRegister = false;
 
         } catch (Exception e) {
             e.printStackTrace();
